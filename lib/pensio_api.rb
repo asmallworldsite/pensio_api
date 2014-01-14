@@ -1,0 +1,26 @@
+require 'active_support/core_ext/string/inflections'
+
+require 'pensio_api/mixins/id'
+require 'pensio_api/mixins/method_missing'
+require 'pensio_api/mixins/timestamps'
+
+require 'pensio_api/credentials'
+require 'pensio_api/ecommerce'
+require 'pensio_api/request'
+require 'pensio_api/reservation'
+require 'pensio_api/transaction'
+require 'pensio_api/terminal'
+require 'pensio_api/subscription'
+
+require 'pensio_api/errors/bad_request'
+require 'pensio_api/errors/gateway_error'
+
+require 'pensio_api/responses/base'
+require 'pensio_api/responses/gateway_url'
+require 'pensio_api/responses/terminal'
+require 'pensio_api/responses/transaction'
+require 'pensio_api/responses/refund'
+require 'pensio_api/responses/reservation'
+require 'pensio_api/responses/reservation_capture'
+require 'pensio_api/responses/reservation_release'
+require 'pensio_api/responses/subscription_charge'

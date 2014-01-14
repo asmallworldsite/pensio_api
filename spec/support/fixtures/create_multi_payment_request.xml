@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<APIResponse version="20130430">
+   <Header>
+      <Date>2013-04-30T14:49:35+02:00</Date>
+      <Path>API/createMultiPaymentRequest</Path>
+      <ErrorCode>0</ErrorCode>
+      <ErrorMessage/>
+   </Header>
+   <Body>
+      <Result>Success</Result>
+      <Url>https://gateway.pensio.com/merchant.php/API/multiRequestForm?mpid=d1cac3c7-4747-46a4-a001-89e3d9b1afa2</Url>
+   </Body>
+</APIResponse>
