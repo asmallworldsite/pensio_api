@@ -61,7 +61,7 @@ describe PensioAPI::Request do
     specify { expect(p.send(:request_options, {})[:basic_auth]).to_not be_nil }
 
     it 'appends basic auth to the options' do
-      expect(p.send(:request_options, {})[:basic_auth]).to eq(PensioAPI::Request::AUTH)
+      expect(p.send(:request_options, {})[:basic_auth]).to eq(p.send(:auth))
     end
 
     specify { expect(p.send(:request_options, {})[:headers]).to_not be_nil }

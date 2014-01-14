@@ -3,11 +3,6 @@ module PensioAPI
     include HTTParty
 
     attr_reader :response, :headers, :body
-    
-    AUTH = {
-      username: PensioAPI::Credentials.username,
-      password: PensioAPI::Credentials.password
-    }
 
     HEADERS = {
       'Content-Type' => 'application/x-www-form-urlencoded'
@@ -35,9 +30,16 @@ module PensioAPI
 
     def request_options(options)
       {
-        basic_auth: AUTH,
+        basic_auth: auth,
         headers: (options.delete(:headers) || {}).merge(HEADERS),
         body: options
+      }
+    end
+
+    def auth
+      {
+        username: PensioAPI::Credentials.username,
+        password: PensioAPI::Credentials.password
       }
     end
 

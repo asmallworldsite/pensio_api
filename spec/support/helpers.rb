@@ -4,7 +4,7 @@ module Helpers
   end
 
   def stub_pensio_response(path, fixture)
-    stub_request(:post, "#{PensioAPI::Credentials.base_uri}#{path}")
+    stub_request(:post, "https://test_user:password@testgateway.pensio.com#{path}")
       .to_return(
         body: file_fixture("#{fixture}.xml"),
         status: 200,
