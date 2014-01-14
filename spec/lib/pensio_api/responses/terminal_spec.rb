@@ -40,4 +40,16 @@ describe PensioAPI::Responses::Terminal do
       end
     end
   end
+
+  context 'with no terminals' do
+    before :each do
+      stub_pensio_response('/merchant/API/getTerminals', 'get_terminals_none')
+    end
+
+    describe '.transactions' do
+      it 'returns an empty array' do
+        expect(response.terminals).to eq([])
+      end
+    end
+  end
 end

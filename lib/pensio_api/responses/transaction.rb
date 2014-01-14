@@ -30,7 +30,11 @@ module PensioAPI
       end
 
       def raw_transactions
-        @raw_transactions ||= @raw['Transactions']['Transaction']
+        @raw_transactions ||= if @raw['Transactions']
+          @raw['Transactions']['Transaction']
+        else
+          []
+        end
       end
     end
   end

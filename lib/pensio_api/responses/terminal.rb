@@ -30,7 +30,11 @@ module PensioAPI
       end
 
       def raw_terminals
-        @raw_terminals ||= @raw['Terminals']['Terminal']
+        @raw_terminals ||= if @raw['Terminals']
+          @raw['Terminals']['Terminal']
+        else
+          []
+        end
       end
     end
   end

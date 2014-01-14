@@ -41,4 +41,16 @@ describe PensioAPI::Responses::Transaction do
       end
     end
   end
+
+  context 'with no payments' do
+    before :each do
+      stub_pensio_response('/merchant/API/payments', 'payments_none')
+    end
+
+    describe '.transactions' do
+      it 'returns an empty array' do
+        expect(response.transactions).to eq([])
+      end
+    end
+  end
 end
