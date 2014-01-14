@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<APIResponse version="20100929">
+  <Header>
+    <Date>2010-02-12T21:45:52+01:00</Date>
+    <Path>API/yourApiCall</Path>
+    <ErrorCode>234</ErrorCode>
+    <ErrorMessage>Error message detailing what the error was</ErrorMessage>
+  </Header>
+  <Body/>
+</APIResponse>

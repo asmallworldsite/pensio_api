@@ -19,6 +19,9 @@ module PensioAPI
 
     def initialize(path, options={})
       self.class.set_base_uri
+
+      raise Errors::NoCredentials unless credentials_supplied?
+
       @response = self.class.post(path, request_options(options))
       @headers = @response.parsed_response['APIResponse']['Header']
       @body = @response.parsed_response['APIResponse']['Body']
@@ -36,6 +39,10 @@ module PensioAPI
         headers: (options.delete(:headers) || {}).merge(HEADERS),
         body: options
       }
+    end
+
+    def credentials_supplied?
+      Credentials.base_uri && Credentials.username && Credentials.password
     end
   end
 end

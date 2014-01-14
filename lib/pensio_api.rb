@@ -14,6 +14,7 @@ require 'pensio_api/subscription'
 
 require 'pensio_api/errors/bad_request'
 require 'pensio_api/errors/gateway_error'
+require 'pensio_api/errors/no_credentials'
 
 require 'pensio_api/responses/base'
 require 'pensio_api/responses/gateway_url'

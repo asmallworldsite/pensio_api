@@ -8,7 +8,7 @@ module PensioAPI
 
         @request_time = Time.parse(request.headers['Date'])
         @request_path = request.headers['Path']
-        @error_code = request.headers['ErrorCode']
+        @error_code = request.headers['ErrorCode'].to_i
       end
     end
   end

@@ -9,8 +9,8 @@ module PensioAPI
         @raw = request.body
         @headers = request.headers
         unless success?
-          raise BadRequest.new(request) unless header_ok
-          raise GatewayError(request) unless body_ok
+          raise PensioAPI::Errors::BadRequest.new(request) unless header_ok
+          raise PensioAPI::Errors::GatewayError.new(request) unless body_ok
         end
       end
 

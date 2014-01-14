@@ -1,13 +1,11 @@
 require 'spec_helper'
 
 describe PensioAPI::Request do
-  before :each do
-    PensioAPI::Request.stub(:post).and_return(
-      construct_response(nil)
-    )
-  end
-
   describe '.new' do
+    before :each do
+      PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+    end
+
     it 'POSTs to the given API path and passes in request options' do
       request_options = PensioAPI::Request.new('/test').send(:request_options, {})
       PensioAPI::Request.should_receive(:post).with('/test', request_options)
@@ -41,6 +39,10 @@ describe PensioAPI::Request do
     end
 
     context 'with an empty response body' do
+      before :each do
+        PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+      end
+
       let(:request) { PensioAPI::Request.new('/test') }
 
       it 'returns false' do
@@ -50,6 +52,10 @@ describe PensioAPI::Request do
   end
 
   describe '.request_options' do
+    before :each do
+      PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+    end
+
     let(:p) { PensioAPI::Request.new('/test') }
 
     specify { expect(p.send(:request_options, {})[:basic_auth]).to_not be_nil }
@@ -74,6 +80,42 @@ describe PensioAPI::Request do
     context 'with body parameters' do
       it 'assigns these to the body parameter' do
         expect(p.send(:request_options, {transaction_id: 5432})[:body][:transaction_id]).to eq(5432)
+      end
+    end
+  end
+
+  describe 'error handling' do
+    context 'with a bad request' do
+      before :each do
+        stub_pensio_response('/merchant/API/payments', 'bad_request_error')
+      end
+
+      it 'raises a PensioAPI::Errors::BadRequest error' do
+        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::BadRequest)
+      end
+    end
+
+    context 'with a gateway error' do
+      before :each do
+        stub_pensio_response('/merchant/API/payments', 'pensio_error')
+      end
+
+      it 'raises a PensioAPI::Errors::GatewayError' do
+        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::GatewayError)
+      end
+    end
+
+    context 'with incomplete credentials' do
+      before :each do
+        PensioAPI::Credentials = OpenStruct.new({
+          base_uri: nil,
+          username: nil,
+          password: nil
+        })
+      end
+
+      it 'raises a PensioAPI::Errors::NoCredentials error' do
+        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::NoCredentials)
       end
     end
   end
