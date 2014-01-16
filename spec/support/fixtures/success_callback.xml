@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<APIResponse version="20130430">
+  <Header>
+    <Date>2014-01-16T15:58:53+01:00</Date>
+    <Path>API/reservationOfFixedAmount</Path>
+    <ErrorCode>0</ErrorCode>
+    <ErrorMessage/>
+  </Header>
+  <Body>
+    <Result>Success</Result>
+    <Transactions>
+      <Transaction>
+        <TransactionId>539101</TransactionId>
+        <AuthType>subscriptionAndCharge</AuthType>
+        <CardStatus>InvalidLuhn</CardStatus>
+        <CreditCardExpiry>
+          <Year>2020</Year>
+          <Month>05</Month>
+        </CreditCardExpiry>
+        <CreditCardToken>805f59195a3d21a250e4b66508a0ae3be7fb3534</CreditCardToken>
+        <CreditCardMaskedPan>123456778</CreditCardMaskedPan>
+        <ThreeDSecureResult>Not_Attempted</ThreeDSecureResult>
+        <CVVCheckResult>Not_Attempted</CVVCheckResult>
+        <BlacklistToken>4aef4cea310e8470f81e7fa041d20ce8abdf130c</BlacklistToken>
+        <ShopOrderId>eur_annual_6e40cd78e24072d1</ShopOrderId>
+        <Shop>A Small World</Shop>
+        <Terminal>Pensio Test Terminal</Terminal>
+        <TransactionStatus>recurring_confirmed</TransactionStatus>
+        <MerchantCurrency>978</MerchantCurrency>
+        <CardHolderCurrency>978</CardHolderCurrency>
+        <ReservedAmount>85.00</ReservedAmount>
+        <CapturedAmount>0.00</CapturedAmount>
+        <RefundedAmount>0.00</RefundedAmount>
+        <RecurringDefaultAmount>85.00</RecurringDefaultAmount>
+        <CreatedDate>2014-01-16 15:58:51</CreatedDate>
+        <UpdatedDate>2014-01-16 15:58:52</UpdatedDate>
+        <PaymentNature>CreditCard</PaymentNature>
+        <PaymentSchemeName>Unknown Card</PaymentSchemeName>
+        <PaymentNatureService name="SoapTestAcquirer">
+          <SupportsRefunds>true</SupportsRefunds>
+          <SupportsRelease>true</SupportsRelease>
+          <SupportsMultipleCaptures>true</SupportsMultipleCaptures>
+          <SupportsMultipleRefunds>true</SupportsMultipleRefunds>
+        </PaymentNatureService>
+        <ChargebackEvents/>
+        <PaymentInfos/>
+        <CustomerInfo>
+          <UserAgent>Mozilla/5.0 (X11; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0</UserAgent>
+          <IpAddress>146.90.11.97</IpAddress>
+          <Email/>
+          <Username/>
+          <CustomerPhone/>
+          <OrganisationNumber/>
+          <CountryOfOrigin>
+            <Country/>
+            <Source>NotSet</Source>
+          </CountryOfOrigin>
+        </CustomerInfo>
+        <ReconciliationIdentifiers/>
+      </Transaction>
+      <Transaction>
+        <TransactionId>539111</TransactionId>
+        <AuthType>subscription_payment</AuthType>
+        <CardStatus>InvalidLuhn</CardStatus>
+        <CreditCardExpiry>
+          <Year>2020</Year>
+          <Month>05</Month>
+        </CreditCardExpiry>
+        <CreditCardToken>805f59195a3d21a250e4b66508a0ae3be7fb3534</CreditCardToken>
+        <CreditCardMaskedPan>123456778</CreditCardMaskedPan>
+        <ThreeDSecureResult>Not_Applicable</ThreeDSecureResult>
+        <CVVCheckResult>Not_Applicable</CVVCheckResult>
+        <BlacklistToken>4aef4cea310e8470f81e7fa041d20ce8abdf130c</BlacklistToken>
+        <ShopOrderId>eur_annual_6e40cd78e24072d1</ShopOrderId>
+        <Shop>A Small World</Shop>
+        <Terminal>Pensio Test Terminal</Terminal>
+        <TransactionStatus>captured</TransactionStatus>
+        <MerchantCurrency>978</MerchantCurrency>
+        <CardHolderCurrency>978</CardHolderCurrency>
+        <ReservedAmount>85.00</ReservedAmount>
+        <CapturedAmount>85.00</CapturedAmount>
+        <RefundedAmount>0.00</RefundedAmount>
+        <RecurringDefaultAmount>0.00</RecurringDefaultAmount>
+        <CreatedDate>2014-01-16 15:58:52</CreatedDate>
+        <UpdatedDate>2014-01-16 15:58:53</UpdatedDate>
+        <PaymentNature>CreditCard</PaymentNature>
+        <PaymentSchemeName>Unknown Card</PaymentSchemeName>
+        <PaymentNatureService name="SoapTestAcquirer">
+          <SupportsRefunds>true</SupportsRefunds>
+          <SupportsRelease>true</SupportsRelease>
+          <SupportsMultipleCaptures>true</SupportsMultipleCaptures>
+          <SupportsMultipleRefunds>true</SupportsMultipleRefunds>
+        </PaymentNatureService>
+        <ChargebackEvents/>
+        <PaymentInfos/>
+        <CustomerInfo>
+          <UserAgent>Mozilla/5.0 (X11; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0</UserAgent>
+          <IpAddress>146.90.11.97</IpAddress>
+          <Email/>
+          <Username/>
+          <CustomerPhone/>
+          <OrganisationNumber/>
+          <CountryOfOrigin>
+            <Country/>
+            <Source>NotSet</Source>
+          </CountryOfOrigin>
+        </CustomerInfo>
+        <ReconciliationIdentifiers>
+          <ReconciliationIdentifier>
+            <Id>ad38fa3b-5e3a-43ec-aaa1-aefc7aa03fa3</Id>
+            <Amount currency="978">85.00</Amount>
+            <Type>captured</Type>
+            <Date>2014-01-16T15:58:53+01:00</Date>
+          </ReconciliationIdentifier>
+        </ReconciliationIdentifiers>
+      </Transaction>
+    </Transactions>
+  </Body>
+</APIResponse>

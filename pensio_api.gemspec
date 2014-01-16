@@ -13,4 +13,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'httparty', '>= 0.12.0'
   s.add_dependency 'activesupport', '>= 3.2'
+  s.add_dependency 'multi_xml', '>= 0.5.2'
 end
