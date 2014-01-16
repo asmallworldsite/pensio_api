@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.version = '0.0.1'
   s.license = 'BSD-3-Clause'
   s.summary = "Provides integration for the Pensio Merchant API"
-  s.authors = ['Michael Sell']
+  s.authors = ['Michael Sell', 'Rory Sinclair']
   s.email = 'michael@asw.com'
   
   s.add_development_dependency 'rspec', '>= 2.14'
