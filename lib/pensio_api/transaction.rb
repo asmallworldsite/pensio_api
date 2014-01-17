@@ -4,6 +4,7 @@ module PensioAPI
     include Mixins::MethodMissing
     include Mixins::Timestamps
 
+    attr_reader :status
     attr_reader :captured_amount
     attr_reader :reserved_amount
     attr_reader :refunded_amount
@@ -17,6 +18,8 @@ module PensioAPI
 
     def initialize(transaction_body)
       @raw = transaction_body
+
+      @status = @raw['TransactionStatus']
 
       @captured_amount = BigDecimal.new(@raw['CapturedAmount'])
       @reserved_amount = BigDecimal.new(@raw['ReservedAmount'])

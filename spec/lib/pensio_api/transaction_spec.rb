@@ -10,6 +10,10 @@ describe PensioAPI::Transaction do
 
   describe 'reader attributes' do
     describe '.captured_amount' do
+      specify { expect(transaction.status).to be_an_instance_of(String) }
+    end
+
+    describe '.captured_amount' do
       specify { expect(transaction.captured_amount).to be_an_instance_of(BigDecimal) }
     end
 
