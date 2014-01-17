@@ -4,6 +4,7 @@ require 'pensio_api/mixins/id'
 require 'pensio_api/mixins/method_missing'
 require 'pensio_api/mixins/timestamps'
 
+require 'pensio_api/billing_address'
 require 'pensio_api/callback'
 require 'pensio_api/credentials'
 require 'pensio_api/ecommerce'

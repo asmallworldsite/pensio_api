@@ -53,5 +53,11 @@ module PensioAPI
     def terminal
       @terminal ||= Terminal.all.find { |t| t.title == @raw['Terminal'] }
     end
+
+    def billing_address
+      @billing_address ||= if @raw.has_key?('CustomerInfo')
+        BillingAddress.new(@raw['CustomerInfo']['BillingAddress'])
+      end
+    end
   end
 end

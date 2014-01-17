@@ -81,4 +81,10 @@ describe PensioAPI::Transaction do
       end
     end
   end
+
+  describe '.billing_address' do
+    it 'returns a PensioAPI::BillingAddress object' do
+      expect(transaction.billing_address).to be_an_instance_of(PensioAPI::BillingAddress)
+    end
+  end
 end
