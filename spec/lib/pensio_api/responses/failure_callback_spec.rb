@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe PensioAPI::Responses::SuccessCallback do
+describe PensioAPI::Responses::FailureCallback do
 
-  let(:response) { PensioAPI::Callback.parse_success(file_fixture("success_callback.xml")) }
+  let(:response) { PensioAPI::Callback.parse_failure(file_fixture("failure_callback.xml")) }
 
   it "succeeds" do
     expect(response.success?).to be_true
@@ -17,11 +17,10 @@ describe PensioAPI::Responses::SuccessCallback do
   end
   
   describe ".charge" do
-    it "gets a charge transaction with capture" do
+    it "gets a charge transaction without capture" do
       expect(response.charge).to be_an_instance_of(PensioAPI::Transaction)
-      expect(response.charge.reserved_amount).to eq(response.charge.captured_amount)
-      expect(response.charge.reserved_amount).to be > 0.0
-      expect(response.charge.captured_amount).to be > 0.0
+      expect(response.charge.reserved_amount).to eq 0.0
+      expect(response.charge.captured_amount).to eq 0.0
     end
   end
   

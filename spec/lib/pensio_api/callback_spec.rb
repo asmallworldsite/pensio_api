@@ -14,7 +14,7 @@ describe PensioAPI::Callback do
     let(:response) { PensioAPI::Callback.parse_failure(file_fixture("failure_callback.xml")) }
     it "should return a FailureCallback response" do
       expect(response).to be_an_instance_of(PensioAPI::Responses::FailureCallback)
-     # expect(response.success?).to be_false #TODO: clarify what we expect here
+      expect(response.success?).to be_true
     end
   end
 end
