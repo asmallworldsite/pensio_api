@@ -16,6 +16,15 @@ module PensioAPI
     attr_reader :merchant_currency
     attr_reader :card_holder_currency
 
+    # constants for transaction statuses
+    STATUS_RECURRING_CONFIRMED = 'recurring_confirmed'
+    STATUS_RELEASED = 'released'
+    STATUS_CAPTURED = 'captured'
+    STATUS_CAPTURED_FAILED = 'captured_failed'
+    
+    RESERVATION_SUCCESS_STATUSES = [STATUS_RECURRING_CONFIRMED]
+    CHARGE_SUCCESS_STATUSES = [STATUS_CAPTURED]
+    
     def initialize(transaction_body)
       @raw = transaction_body
 
@@ -42,7 +51,11 @@ module PensioAPI
     end
 
     def captured?
-      captured_amount >= reserved_amount
+      captured_amount >= reserved_amount && CHARGE_SUCCESS_STATUSES.include?(self.transaction_status)
+    end
+    
+    def reserved?
+      RESERVATION_SUCCESS_STATUSES.include?(self.transaction_status)
     end
 
     def to_reservation
