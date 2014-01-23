@@ -7,7 +7,7 @@
       <ErrorMessage></ErrorMessage>
    </Header>
    <Body>
-      <RefundAmount>0.12</RefundAmount>
+      <RefundedAmount>0.12</RefundedAmount>
       <RefundCurrency>978</RefundCurrency>
       <Result>Success</Result>
       <RefundResult>Success</RefundResult> <!-- deprecated -->
