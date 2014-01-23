@@ -66,6 +66,11 @@ module PensioAPI
       Subscription.new(self)
     end
 
+    def refund(options={})
+      request = Request.new('/merchant/API/refundCapturedReservation', options.merge(transaction_id: self.id))
+      Responses::Refund.new(request)
+    end
+
     def terminal
       @terminal ||= Terminal.all.find { |t| t.title == @raw['Terminal'] }
     end

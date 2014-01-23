@@ -6,7 +6,7 @@ describe PensioAPI::Responses::Refund do
     stub_pensio_response('/merchant/API/refundCapturedReservation', 'refund_captured_reservation')
   end
 
-  let(:response) { PensioAPI::Transaction.find.first.to_reservation.refund }
+  let(:response) { PensioAPI::Transaction.find.first.refund }
 
   specify { expect(response).to be_an_instance_of(PensioAPI::Responses::Refund) }
 

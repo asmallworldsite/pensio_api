@@ -4,6 +4,7 @@ describe PensioAPI::Transaction do
   before :each do
     stub_pensio_response('/merchant/API/payments', 'payments')
     stub_pensio_response('/merchant/API/getTerminals', 'get_terminals')
+    stub_pensio_response('/merchant/API/refundCapturedReservation', 'refund_captured_reservation')
   end
 
   let(:transaction) { PensioAPI::Transaction.find.first }
@@ -69,6 +70,12 @@ describe PensioAPI::Transaction do
     it 'returns a PensioAPI::Terminal object' do
       expect(transaction.terminal).to be_an_instance_of(PensioAPI::Terminal)
     end
+  end
+
+  describe '.refund' do
+    let(:response) { transaction.refund }
+
+    specify { expect(response).to be_an_instance_of(PensioAPI::Responses::Refund) }
   end
 
   describe '.captured?' do

@@ -5,7 +5,6 @@ describe PensioAPI::Reservation do
     stub_pensio_response('/merchant/API/payments', 'payments')
     stub_pensio_response('/merchant/API/captureReservation', 'capture_reservation')
     stub_pensio_response('/merchant/API/releaseReservation', 'release_reservation')
-    stub_pensio_response('/merchant/API/refundCapturedReservation', 'refund_captured_reservation')
     stub_pensio_response('/merchant/API/reservationOfFixedAmount', 'reservation_of_fixed_amount')
   end
 
@@ -21,12 +20,6 @@ describe PensioAPI::Reservation do
     let(:response) { transaction.to_reservation.release }
 
     specify { expect(response).to be_an_instance_of(PensioAPI::Responses::ReservationRelease) }
-  end
-
-  describe '.refund' do
-    let(:response) { transaction.to_reservation.refund }
-
-    specify { expect(response).to be_an_instance_of(PensioAPI::Responses::Refund) }
   end
 
   describe '.of_fixed_amount' do

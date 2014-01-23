@@ -19,15 +19,10 @@ module PensioAPI
       Responses::ReservationRelease.new(request)
     end
 
-    def refund(options={})
-      request = Request.new('/merchant/API/refundCapturedReservation', options.merge(reservation_options))
-      Responses::Refund.new(request)
-    end
-
     private
 
     def reservation_options
-      { transaction_id: @transaction.transaction_id }
+      { transaction_id: @transaction.id }
     end
   end
 end
