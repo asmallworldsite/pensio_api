@@ -21,6 +21,9 @@ describe PensioAPI::Responses::FailureCallback do
     it "does not capture any amount" do
       expect(response.reservation.captured_amount).to eq 0.0
     end
+    it "receives the submitted billing address" do
+      expect(response.reservation.billing_address).to be_an_instance_of PensioAPI::BillingAddress
+    end
   end
   
   describe ".charge" do
@@ -35,6 +38,9 @@ describe PensioAPI::Responses::FailureCallback do
     end
     it "does not capture any amount" do
       expect(response.charge.captured_amount).to eq 0.0
+    end
+    it "receives the submitted billing address" do
+      expect(response.charge.billing_address).to be_an_instance_of PensioAPI::BillingAddress
     end
   end
   
