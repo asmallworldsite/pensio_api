@@ -76,7 +76,7 @@ module PensioAPI
     end
 
     def billing_address
-      @billing_address ||= if @raw.has_key?('CustomerInfo')
+      @billing_address ||= if @raw.has_key?('CustomerInfo') && @raw['CustomerInfo'].has_key?('BillingAddress')
         BillingAddress.new(@raw['CustomerInfo']['BillingAddress'])
       end
     end
