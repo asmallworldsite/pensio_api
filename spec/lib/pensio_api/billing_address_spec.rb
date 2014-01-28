@@ -25,6 +25,10 @@ describe PensioAPI::BillingAddress do
       specify { expect(billing_address.city).to eq(transaction.customer_info['BillingAddress']['City']) }
     end
 
+    describe '.region' do
+      specify { expect(billing_address.region).to eq(transaction.customer_info['BillingAddress']['Region']) }
+    end
+
     describe '.postal_code' do
       specify { expect(billing_address.postal_code).to eq(transaction.customer_info['BillingAddress']['PostalCode']) }
     end

@@ -59,6 +59,7 @@
                   <Lastname>Simonsen</Lastname>
                   <Address>Rosenkæret 13</Address>
                   <City>Søborg</City>
+                  <Region>Test</Region>
                   <PostalCode>2860</PostalCode>
                   <Country>DK</Country>
                </BillingAddress>
@@ -124,6 +125,7 @@
                   <Lastname>Simonsen</Lastname>
                   <Address>Rosenkæret 13</Address>
                   <City>Søborg</City>
+                  <Region>Test</Region>
                   <PostalCode>2860</PostalCode>
                   <Country>DK</Country>
                </BillingAddress>
