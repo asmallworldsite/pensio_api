@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe PensioAPI::Responses::FailureCallback do
+describe PensioAPI::Responses::SubscriptionFailureCallback do
 
-  let(:response) { PensioAPI::Callback.parse_failure(file_fixture("failure_callback.xml")) }
+  let(:response) { PensioAPI::Callback.parse_failure(file_fixture("subscription_failure_callback.xml")) }
 
   it "succeeds" do
     expect(response.success?).to be_true

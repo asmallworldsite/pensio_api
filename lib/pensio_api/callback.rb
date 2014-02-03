@@ -23,7 +23,7 @@ module PensioAPI
       if success
         PensioAPI::Responses::SuccessCallback.new(request)
       else
-        PensioAPI::Responses::FailureCallback.new(request)
+        PensioAPI::Responses::SubscriptionFailureCallback.new(request)
       end
     end
   end

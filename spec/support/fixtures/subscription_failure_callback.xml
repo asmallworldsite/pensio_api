@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<APIResponse version="20130430">
+  <Header>
+    <Date>2014-01-17T18:42:50+01:00</Date>
+    <Path>API/reservationOfFixedAmount</Path>
+    <ErrorCode>0</ErrorCode>
+    <ErrorMessage/>
+  </Header>
+  <Body>
+    <Result>Success</Result>
+    <Transactions>
+      <Transaction>
+        <TransactionId>542651</TransactionId>
+        <AuthType>subscriptionAndCharge</AuthType>
+        <CardStatus>Valid</CardStatus>
+        <CreditCardExpiry>
+          <Year>2024</Year>
+          <Month>06</Month>
+        </CreditCardExpiry>
+        <CreditCardToken>16af2bf3185e5aab2574fc0b76237815080de66b</CreditCardToken>
+        <CreditCardMaskedPan>412000******1369</CreditCardMaskedPan>
+        <ThreeDSecureResult>Not_Applicable</ThreeDSecureResult>
+        <CVVCheckResult>Not_Applicable</CVVCheckResult>
+        <BlacklistToken>499673181bc707d524d1dd99f39753b86abb8d4e</BlacklistToken>
+        <ShopOrderId>usd_annual_959448_5928780257214eef3fe7255cb4ee83da8952ad524a3fdb6e1b9e5e7ed493c513</ShopOrderId>
+        <Shop>A Small World</Shop>
+        <Terminal>A Small World Test Terminal</Terminal>
+        <TransactionStatus>released</TransactionStatus>
+        <MerchantCurrency>840</MerchantCurrency>
+        <CardHolderCurrency>840</CardHolderCurrency>
+        <ReservedAmount>13.69</ReservedAmount>
+        <CapturedAmount>0.00</CapturedAmount>
+        <RefundedAmount>0.00</RefundedAmount>
+        <RecurringDefaultAmount>13.69</RecurringDefaultAmount>
+        <CreatedDate>2014-01-17 18:42:47</CreatedDate>
+        <UpdatedDate>2014-01-17 18:42:49</UpdatedDate>
+        <PaymentNature>CreditCard</PaymentNature>
+        <PaymentSchemeName>Visa</PaymentSchemeName>
+        <PaymentNatureService name="SoapTestAcquirer">
+          <SupportsRefunds>true</SupportsRefunds>
+          <SupportsRelease>true</SupportsRelease>
+          <SupportsMultipleCaptures>true</SupportsMultipleCaptures>
+          <SupportsMultipleRefunds>true</SupportsMultipleRefunds>
+        </PaymentNatureService>
+        <ChargebackEvents/>
+        <PaymentInfos/>
+        <CustomerInfo>
+          <UserAgent>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:26.0) Gecko/20100101 Firefox/26.0</UserAgent>
+          <IpAddress>78.32.186.32</IpAddress>
+          <Email/>
+          <Username/>
+          <CustomerPhone/>
+          <OrganisationNumber/>
+          <CountryOfOrigin>
+            <Country>US</Country>
+            <Source>CardNumber</Source>
+          </CountryOfOrigin>
+          <BillingAddress>
+            <Firstname/>
+            <Lastname/>
+            <Address><![CDATA[123 Monkey Road, Anytown]]></Address>
+            <City><![CDATA[New York City]]></City>
+            <Region><![CDATA[NY]]></Region>
+            <Country><![CDATA[US]]></Country>
+            <PostalCode><![CDATA[12345678]]></PostalCode>
+          </BillingAddress>
+        </CustomerInfo>
+        <ReconciliationIdentifiers/>
+      </Transaction>
+      <Transaction>
+        <TransactionId>542661</TransactionId>
+        <AuthType>subscription_payment</AuthType>
+        <CardStatus>Valid</CardStatus>
+        <CreditCardExpiry>
+          <Year>2024</Year>
+          <Month>06</Month>
+        </CreditCardExpiry>
+        <CreditCardToken>16af2bf3185e5aab2574fc0b76237815080de66b</CreditCardToken>
+        <CreditCardMaskedPan>412000******1369</CreditCardMaskedPan>
+        <ThreeDSecureResult>Not_Applicable</ThreeDSecureResult>
+        <CVVCheckResult>Not_Applicable</CVVCheckResult>
+        <BlacklistToken>499673181bc707d524d1dd99f39753b86abb8d4e</BlacklistToken>
+        <ShopOrderId>usd_annual_959448_5928780257214eef3fe7255cb4ee83da8952ad524a3fdb6e1b9e5e7ed493c513</ShopOrderId>
+        <Shop>A Small World</Shop>
+        <Terminal>A Small World Test Terminal</Terminal>
+        <TransactionStatus>captured_failed</TransactionStatus>
+        <MerchantCurrency>840</MerchantCurrency>
+        <CardHolderCurrency>840</CardHolderCurrency>
+        <ReservedAmount>0.00</ReservedAmount>
+        <CapturedAmount>0.00</CapturedAmount>
+        <RefundedAmount>0.00</RefundedAmount>
+        <RecurringDefaultAmount>0.00</RecurringDefaultAmount>
+        <CreatedDate>2014-01-17 18:42:49</CreatedDate>
+        <UpdatedDate>2014-01-17 18:42:50</UpdatedDate>
+        <PaymentNature>CreditCard</PaymentNature>
+        <PaymentSchemeName>Visa</PaymentSchemeName>
+        <PaymentNatureService name="SoapTestAcquirer">
+          <SupportsRefunds>true</SupportsRefunds>
+          <SupportsRelease>true</SupportsRelease>
+          <SupportsMultipleCaptures>true</SupportsMultipleCaptures>
+          <SupportsMultipleRefunds>true</SupportsMultipleRefunds>
+        </PaymentNatureService>
+        <AddressVerification>1</AddressVerification>
+        <AddressVerificationDescription>Invalid address verification response code</AddressVerificationDescription>
+        <ChargebackEvents/>
+        <PaymentInfos/>
+        <CustomerInfo>
+          <UserAgent>Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:26.0) Gecko/20100101 Firefox/26.0</UserAgent>
+          <IpAddress>78.32.186.32</IpAddress>
+          <Email/>
+          <Username/>
+          <CustomerPhone/>
+          <OrganisationNumber/>
+          <CountryOfOrigin>
+            <Country>US</Country>
+            <Source>CardNumber</Source>
+          </CountryOfOrigin>
+          <BillingAddress>
+            <Firstname/>
+            <Lastname/>
+            <Address><![CDATA[123 Monkey Road, Anytown]]></Address>
+            <City><![CDATA[New York City]]></City>
+            <Region><![CDATA[NY]]></Region>
+            <Country><![CDATA[US]]></Country>
+            <PostalCode><![CDATA[12345678]]></PostalCode>
+          </BillingAddress>
+        </CustomerInfo>
+        <ReconciliationIdentifiers/>
+      </Transaction>
+    </Transactions>
+  </Body>
+</APIResponse>

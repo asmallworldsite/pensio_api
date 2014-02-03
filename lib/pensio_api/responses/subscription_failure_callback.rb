@@ -1,6 +1,6 @@
 module PensioAPI
   module Responses
-    class FailureCallback < Transaction
+    class SubscriptionFailureCallback < Transaction
       extend Forwardable
 
       def_delegators :new, :captured?

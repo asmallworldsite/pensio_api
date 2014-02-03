@@ -1,6 +1,7 @@
 require 'active_support/core_ext/string/inflections'
 
 require 'pensio_api/mixins/id'
+require 'pensio_api/mixins/has_transactions'
 require 'pensio_api/mixins/method_missing'
 require 'pensio_api/mixins/timestamps'
 
@@ -28,4 +29,4 @@ require 'pensio_api/responses/reservation_capture'
 require 'pensio_api/responses/reservation_release'
 require 'pensio_api/responses/subscription_charge'
 require 'pensio_api/responses/success_callback'
-require 'pensio_api/responses/failure_callback'
+require 'pensio_api/responses/subscription_failure_callback'

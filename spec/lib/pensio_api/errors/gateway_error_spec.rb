@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PensioAPI::Errors::BadRequest do
+describe PensioAPI::Errors::GatewayError do
   before :each do
     stub_pensio_response('/merchant/API/payments', 'pensio_error')
   end
@@ -26,6 +26,12 @@ describe PensioAPI::Errors::BadRequest do
 
     describe '.error_code' do
       specify { expect(error.cardholder_message).to be_an_instance_of(String) }
+    end
+  end
+
+  describe 'object mapping' do
+    it 'maps transactions to transaction objects' do
+      expect(error.transactions.all? { |r| r.class == PensioAPI::Transaction }).to be_true
     end
   end
 end
