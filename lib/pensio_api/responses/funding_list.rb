@@ -26,7 +26,7 @@ module PensioAPI
       end
 
       def raw_funding_lists
-        @raw_funding_lists ||= if @raw['Fundings']
+        @raw_funding_lists ||= if @raw['Fundings'] && raw['Fundings']['Funding']
           @raw['Fundings']['Funding']
         else
           []
