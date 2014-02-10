@@ -15,7 +15,7 @@ module PensioAPI
     def initialize(funding_list_body)
       @raw = funding_list_body
 
-      @filename = @raw['FileName']
+      @filename = @raw['Filename']
       @amount = @raw['Amount']
       @acquirer = @raw['Acquirer']
       @funding_date = Date.parse(@raw['FundingDate'])
