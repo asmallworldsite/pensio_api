@@ -3,7 +3,7 @@ This gem covers most of the Merchant and eCommerce API functionality provided by
 
 ## Getting Started
 
-First, register your Pensio credentials. For example, if you're using rails, create `config/initializers/pensio` with the following contents:
+First, register your Pensio credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
 
 ```
 PensioAPI::Credentials.base_uri = 'Your pensio gateway URI'
@@ -54,7 +54,7 @@ With an existing subscription, use `.reserve_charge` to place a charge reservati
 
 PensioAPI::Ecommerce is a module which exposes the eCommerce API endpoints. Two module methods `.create_payment_request` and `.create_multi_payment_request` can be used to generate payment URLs for a multitude of payment types. Consult the Pensio eCommerce API documentation for parameter details.
 
-## Callbacks.
+## Callbacks
 
 `PensioAPI::Callback` provides two methods `.parse_success` and `.parse_failure`. These are designed to parse the callbacks Pensio send to your transaction success and transaction failure endpoints. Each returns a callback response which exposes the transaction details for processing by your app.
 
