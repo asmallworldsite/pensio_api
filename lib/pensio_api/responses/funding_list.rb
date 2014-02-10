@@ -1,7 +1,7 @@
 module PensioAPI
   module Responses
     class FundingList < Base
-      attr_reader :funding_lists
+      attr_reader :funding_lists, :page_count
 
       include Enumerable
 
@@ -9,6 +9,12 @@ module PensioAPI
         super(request)
 
         map_funding_lists
+
+        @page_count = if @raw['Fundings']
+          (@raw['Fundings']['numberOfPages'] || 0).to_i
+        else
+          0
+        end
       end
 
       def each

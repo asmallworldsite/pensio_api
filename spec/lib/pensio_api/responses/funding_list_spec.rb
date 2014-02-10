@@ -13,5 +13,11 @@ describe PensioAPI::Responses::FundingList do
         expect(funding_list.funding_lists.map(&:class).uniq).to eq([PensioAPI::FundingList])
       end
     end
+
+    describe '.page_count' do
+      it 'returns a number of pages' do
+        expect(funding_list.page_count).to be_an_instance_of(Fixnum)
+      end
+    end
   end
 end
