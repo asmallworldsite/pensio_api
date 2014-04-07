@@ -1,10 +1,13 @@
 Gem::Specification.new do |s|
   s.name = 'pensio_api'
-  s.version = '0.2.1'
+  s.version = '0.2.2'
   s.license = 'BSD-3-Clause'
   s.summary = "Provides integration for the Pensio Merchant API"
   s.authors = ['Michael Sell', 'Rory Sinclair']
   s.email = 'michael@asw.com'
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- spec/*`.split("\n")
+  s.require_paths = ["lib"]
   
   s.add_development_dependency 'rspec', '>= 2.14'
   s.add_development_dependency 'webmock', '~> 1.16.1'
