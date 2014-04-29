@@ -14,7 +14,7 @@ module PensioAPI
       end
 
       HEADERS = {
-        'Content-Type' => 'application/x-www-form-urlencoded'
+        'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'
       }
 
       def initialize(path, options={})
