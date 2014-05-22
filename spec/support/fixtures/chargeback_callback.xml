@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<APIResponse version="20130430">
+  <Header>
+    <Date>2014-05-22T11:05:16+02:00</Date>
+    <Path>settings/createReconciliationData</Path>
+    <ErrorCode>0</ErrorCode>
+    <ErrorMessage/>
+  </Header>
+  <Body>
+    <Result>ChargebackEvent</Result>
+    <Transactions>
+      <Transaction>
+        <TransactionId>1093191</TransactionId>
+        <AuthType>subscription_payment</AuthType>
+        <CardStatus>InvalidLuhn</CardStatus>
+        <CreditCardExpiry>
+          <Year>2025</Year>
+          <Month>11</Month>
+        </CreditCardExpiry>
+        <CreditCardToken>eba482b9ca1dac29a3964dca21d921c2f91b0d1b</CreditCardToken>
+        <CreditCardMaskedPan>415000******1967</CreditCardMaskedPan>
+        <ThreeDSecureResult>Not_Applicable</ThreeDSecureResult>
+        <CVVCheckResult>Not_Applicable</CVVCheckResult>
+        <BlacklistToken>e2e95ffb9979ff7fe0327ba8bd9b4390c2a08e55</BlacklistToken>
+        <ShopOrderId>test_order</ShopOrderId>
+        <Shop>Test Shop</Shop>
+        <Terminal>Test Terminal</Terminal>
+        <TransactionStatus>captured</TransactionStatus>
+        <MerchantCurrency>978</MerchantCurrency>
+        <CardHolderCurrency>978</CardHolderCurrency>
+        <ReservedAmount>100.20</ReservedAmount>
+        <CapturedAmount>100.20</CapturedAmount>
+        <RefundedAmount>0.00</RefundedAmount>
+        <RecurringDefaultAmount>0.00</RecurringDefaultAmount>
+        <CreatedDate>2014-05-22 11:04:39</CreatedDate>
+        <UpdatedDate>2014-05-22 11:04:40</UpdatedDate>
+        <PaymentNature>CreditCard</PaymentNature>
+        <PaymentSchemeName>Visa</PaymentSchemeName>
+        <PaymentNatureService name="SoapTestAcquirer">
+          <SupportsRefunds>true</SupportsRefunds>
+          <SupportsRelease>true</SupportsRelease>
+          <SupportsMultipleCaptures>true</SupportsMultipleCaptures>
+          <SupportsMultipleRefunds>true</SupportsMultipleRefunds>
+        </PaymentNatureService>
+        <AddressVerification>1</AddressVerification>
+        <AddressVerificationDescription>Invalid address verification response code</AddressVerificationDescription>
+        <ChargebackEvents>
+          <ChargebackEvent>
+            <Date>2014-05-22T00:00:00+02:00</Date>
+            <Type>Chargeback test case</Type>
+            <ReasonCode>30</ReasonCode>
+            <Reason>chargeback</Reason>
+            <Amount>100.20</Amount>
+            <Currency>EUR</Currency>
+            <AcquirerTransactionId>91816f59-0337-4ab7-8823-b56ee1fae848</AcquirerTransactionId>
+            <AdditionalInfo>&lt;additional_info&gt;&lt;info_element&gt;&lt;key&gt;Type&lt;/key&gt;&lt;value&gt;Test&lt;/value&gt;&lt;/info_element&gt;&lt;/additional_info&gt;</AdditionalInfo>
+          </ChargebackEvent>
+        </ChargebackEvents>
+        <PaymentInfos/>
+        <CustomerInfo>
+          <UserAgent>Mozilla/5.0 (X11; Linux x86_64; rv:29.0) Gecko/20100101 Firefox/29.0</UserAgent>
+          <IpAddress>46.208.161.11</IpAddress>
+          <Email/>
+          <Username/>
+          <CustomerPhone/>
+          <OrganisationNumber/>
+          <CountryOfOrigin>
+            <Country>LV</Country>
+            <Source>CardNumber</Source>
+          </CountryOfOrigin>
+          <BillingAddress>
+            <Firstname/>
+            <Lastname/>
+            <Address><![CDATA[11 Test Street]]></Address>
+            <City><![CDATA[Eberswalde]]></City>
+            <Region><![CDATA[Test]]></Region>
+            <Country><![CDATA[DE]]></Country>
+            <PostalCode><![CDATA[112233]]></PostalCode>
+          </BillingAddress>
+        </CustomerInfo>
+        <ReconciliationIdentifiers>
+          <ReconciliationIdentifier>
+            <Id>6c09caac-c6cc-a927-a4f3-f64d7a7102ab</Id>
+            <Amount currency="978">100.20</Amount>
+            <Type>captured</Type>
+            <Date>2014-05-22T11:04:40+02:00</Date>
+          </ReconciliationIdentifier>
+        </ReconciliationIdentifiers>
+      </Transaction>
+    </Transactions>
+  </Body>
+</APIResponse>

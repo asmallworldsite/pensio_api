@@ -17,5 +17,13 @@ describe PensioAPI::Callback do
       expect(response.success?).to be_true
     end
   end
+
+  describe ".parse_chargeback" do
+    let(:response) { PensioAPI::Callback.parse_chargeback(file_fixture("chargeback_callback.xml")) }
+    it "should return a ChargebackCallback response" do
+      expect(response).to be_an_instance_of(PensioAPI::Responses::ChargebackCallback)
+      expect(response.success?).to be_true
+    end
+  end
 end
 
