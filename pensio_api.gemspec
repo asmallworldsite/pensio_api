@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'pensio_api'
-  s.version = '0.2.3'
+  s.version = '0.3.0'
   s.license = 'BSD-3-Clause'
   s.summary = "Provides integration for the Pensio Merchant API"
   s.authors = ['Michael Sell', 'Rory Sinclair']
