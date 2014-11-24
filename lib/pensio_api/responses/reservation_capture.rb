@@ -1,11 +1,14 @@
 module PensioAPI
   module Responses
-    class ReservationCapture < Responses::Reservation
-      attr_reader :capture_amount, :capture_currency
+    class ReservationCapture < Base
+      attr_reader :transaction, :capture_amount, :capture_currency
 
       def initialize(request)
         super(request)
 
+        @transaction = PensioAPI::Transaction.new(
+          transactions['Transaction']
+        )
         @capture_amount = BigDecimal.new(@raw['CaptureAmount'])
         @capture_currency = @raw['CaptureCurrency'].to_i
       end

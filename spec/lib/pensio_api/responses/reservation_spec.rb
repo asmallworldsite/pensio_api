@@ -12,8 +12,5 @@ describe PensioAPI::Responses::Reservation do
   describe 'readable attributes' do
     specify { expect(response.charge).to be_an_instance_of(PensioAPI::Transaction) }
     specify { expect(response.reservation).to be_an_instance_of(PensioAPI::Transaction) }
-    
-    # deprecated behaviour
-    specify { expect(response.transaction).to be_an_instance_of(PensioAPI::Transaction) }
   end
 end

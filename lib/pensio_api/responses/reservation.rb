@@ -14,11 +14,6 @@ module PensioAPI
         @transactions.last
       end
       
-      def transaction
-        puts "DEPRECATION WARNING: PensioAPI::Responses::Reservation#transaction is deprecated - use #charge instead"
-        charge  
-      end
-
     end
   end
 end
