@@ -15,6 +15,7 @@ module PensioAPI
     attr_reader :order_id
     attr_reader :merchant_currency
     attr_reader :card_holder_currency
+    attr_reader :chargeback_events
 
     # constants for transaction statuses
     STATUS_RECURRING_CONFIRMED = 'recurring_confirmed'
@@ -43,6 +44,8 @@ module PensioAPI
 
       @merchant_currency = @raw['MerchantCurrency'].to_i
       @card_holder_currency = @raw['CardHolderCurrency'].to_i
+
+      map_chargeback_events
     end
 
     def self.find(options={})
@@ -78,6 +81,24 @@ module PensioAPI
     def billing_address
       @billing_address ||= if @raw.has_key?('CustomerInfo') && @raw['CustomerInfo'].has_key?('BillingAddress')
         BillingAddress.new(@raw['CustomerInfo']['BillingAddress'])
+      end
+    end
+
+    private
+      
+    def map_chargeback_events
+      @chargeback_events = if raw_chargeback_events.is_a?(Array)
+        raw_chargeback_events.map { |c| PensioAPI::ChargebackEvent.new(c) }
+      else
+        [PensioAPI::ChargebackEvent.new(raw_chargeback_events)]
+      end
+    end
+
+    def raw_chargeback_events
+      @raw_chargeback_events ||= if @raw['ChargebackEvents']
+        @raw['ChargebackEvents']['ChargebackEvent']
+      else
+        []
       end
     end
   end

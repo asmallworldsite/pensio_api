@@ -37,6 +37,10 @@ describe PensioAPI::Transaction do
     describe '.card_holder_currency' do
       specify { expect(transaction.card_holder_currency).to be_an_instance_of(Fixnum) }
     end
+
+    describe '.chargeback_events' do
+      specify { expect(transaction.chargeback_events).to be_an_instance_of(Array) }
+    end
   end
 
   describe '.find' do
