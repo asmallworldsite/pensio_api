@@ -1,6 +1,7 @@
 module PensioAPI
   module Responses
-    class ReservationRelease < Responses::Reservation
+    class ReservationRelease < Base
+      
     end
   end
 end
