@@ -4,13 +4,7 @@ module PensioAPI
       def self.included(base)
         base.send(:include, HTTParty)
         base.send(:attr_reader, :response)
-        base.extend(ClassMethods)
-      end
-
-      module ClassMethods
-        def set_base_uri
-          self.base_uri PensioAPI::Credentials.base_uri unless self.base_uri
-        end
+        base.send(:attr_accessor, :credentials)
       end
 
       HEADERS = {
@@ -18,9 +12,11 @@ module PensioAPI
       }
 
       def initialize(path, options={})
-        self.class.set_base_uri
-
-        raise Errors::NoCredentials unless credentials_supplied?
+        @credentials = options.delete(:credentials)
+        @credentials ||= PensioAPI::Credentials.default_credentials if PensioAPI::Credentials.credentials_mode == :default || PensioAPI::Credentials.allow_defaults
+        raise Errors::NoCredentials unless @credentials && @credentials.supplied?
+        
+        self.class.base_uri @credentials.base_uri unless self.class.base_uri
 
         @response = self.class.post(path, request_options(options))
       end
@@ -37,14 +33,11 @@ module PensioAPI
 
       def auth
         {
-          username: PensioAPI::Credentials.username,
-          password: PensioAPI::Credentials.password
+          username: @credentials.username,
+          password: @credentials.password
         }
       end
 
-      def credentials_supplied?
-        Credentials.base_uri && Credentials.username && Credentials.password
-      end
     end
   end
 end

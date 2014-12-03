@@ -16,6 +16,7 @@ RSpec.configure do |config|
     PensioAPI::Credentials.base_uri = 'https://testgateway.pensio.com'
     PensioAPI::Credentials.username = 'test_user'
     PensioAPI::Credentials.password = 'password'
+    PensioAPI::Credentials.allow_defaults = true # because some spec examples set up additional creds
   end
 
   # Run specs in random order to surface order dependencies. If you find an
