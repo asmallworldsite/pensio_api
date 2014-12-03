@@ -89,10 +89,18 @@ describe PensioAPI::Request do
         creds.base_uri = 'https://www.test.com'
         creds.username = 'ticketing_username'
         creds.password = 'ticketing_password'
-        p = PensioAPI::Request.new('/test', credentials: creds)
         
-        expect(p.send(:request_options, {})[:basic_auth]).to_not be_nil
-        expect(p.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+        # pass credentials instance
+        req1 = PensioAPI::Request.new('/test', credentials: creds) 
+        
+        # or pass credentials set name
+        req2 = PensioAPI::Request.new('/test', credentials: :ticketing)
+        
+        expect(req1.send(:request_options, {})[:basic_auth]).to_not be_nil
+        expect(req1.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+        
+        expect(req2.send(:request_options, {})[:basic_auth]).to_not be_nil
+        expect(req2.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
       end
     end
   end
