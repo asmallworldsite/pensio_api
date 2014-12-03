@@ -1,7 +1,7 @@
 module PensioAPI
   class Credentials
     class << self
-      attr_accessor :credentials, :allow_defaults
+      attr_accessor :credentials_sets, :allow_defaults
       
       # backwards compatability - set default credentials
       
@@ -30,8 +30,8 @@ module PensioAPI
       end
       
       def for(context)
-        self.credentials ||= {}
-        self.credentials[context.to_sym] ||= PensioAPI::Credentials.new
+        self.credentials_sets ||= {}
+        self.credentials_sets[context.to_sym] ||= PensioAPI::Credentials.new
       end
       
       def default_credentials
@@ -40,7 +40,7 @@ module PensioAPI
       
       def credentials_mode
         self.for(:default)
-        self.credentials.count == 1 ? :default : :multiple
+        self.credentials_sets.count == 1 ? :default : :multiple
       end
     end
     
