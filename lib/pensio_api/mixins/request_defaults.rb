@@ -13,7 +13,7 @@ module PensioAPI
 
       def initialize(path, options={})
         @credentials = options.delete(:credentials)
-        @credentials = PensioAPI::Credentials.for(@credentials) if @credentials.is_a? Symbol
+        @credentials = PensioAPI::Credentials.for(@credentials.to_sym) unless @credentials.nil? || @credentials.is_a?(PensioAPI::Credentials)
         @credentials ||= PensioAPI::Credentials.default_credentials if PensioAPI::Credentials.credentials_mode == :default || PensioAPI::Credentials.allow_defaults
         raise Errors::NoCredentials unless @credentials && @credentials.supplied?
         
