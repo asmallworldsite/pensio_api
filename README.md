@@ -13,7 +13,7 @@ PensioAPI::Credentials.password = 'Your pensio password'
 
 This is sufficient in the simple case where you only have a single integration with Pensio, using a single set of credentials.
 
-If you require support for multiple connections to Pensio's API, using different sets of credentials, you must define named 'credentials sets' - see below under [Multiple Credentials Sets](#Multiple Credentials Sets).
+If you require support for multiple connections to Pensio's API, using different sets of credentials, you must define named 'credentials sets' - see below under [Multiple Credentials Sets](#multiple-credentials-sets).
 
 ## Transactions
 
