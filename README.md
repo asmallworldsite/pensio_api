@@ -95,11 +95,13 @@ PensioAPI::Transaction.find(credentials: 'tickets', transaction_id: '123')
 PensioAPI::Transaction.find(credentials: PensioAPI::Credentials.for(:tickets), transaction_id: '123')
 ```
 
-Typically if you have multiple credentials sets, the default credentials (i.e. PensioAPI::Credentials.base_uri etc) are ignored.  If you have an existing Pensio integration using the simple default credentials approach and now want to also use a named credentials set, you can tell the library to explicitly allow this, by setting:
+Typically if you have multiple credentials sets, the default credentials (i.e. PensioAPI::Credentials.base_uri etc) are ignored, and making any Pensio API requests without explicitly passing a 'credentials' argument will raise  `PensioAPI::NoCredentials`. However, if you have an existing Pensio integration using the simple default credentials approach and now want to also use a named credentials set, you can tell the library to explicitly allow this, by setting:
 
+```
 PensioAPI::Credentials.allow_defaults = true
+```
 
-In this scenario, requests performed without an explicit credentials set will use the default set, and those with named credentials will use those.  BE CAREFUL: If you accidentally omit the credentials set name in a given call, it will use the default credentials set, which could be undesired behaviour.  This is why, by default, if you have multiple credentials sets, the default set is disabled.
+In this scenario, requests performed without an explicit credentials set will use the default set, and those with named credentials will use those.  BE CAREFUL: If you accidentally omit the 'credentials' options key when making a request, it will use the default credentials set, which could lead to undesired behaviour.  This is why, by default, if you have multiple credentials sets, the default set is disabled.
 
 ## TODO
 
