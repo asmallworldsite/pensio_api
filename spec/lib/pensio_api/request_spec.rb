@@ -18,8 +18,8 @@ describe PensioAPI::Request do
       before :each do
         PensioAPI::Request.stub(:post).and_return(
           construct_response({
-            'Test' => 'true'
-          })
+              'Test' => 'true'
+            })
         )
       end
 
@@ -82,6 +82,27 @@ describe PensioAPI::Request do
         expect(p.send(:request_options, {transaction_id: 5432})[:body][:transaction_id]).to eq(5432)
       end
     end
+    
+    context 'with alternative credentials' do
+      it 'sends the correct credentials' do
+        creds = PensioAPI::Credentials.for(:ticketing)
+        creds.base_uri = 'https://www.test.com'
+        creds.username = 'ticketing_username'
+        creds.password = 'ticketing_password'
+        
+        # pass credentials instance
+        req1 = PensioAPI::Request.new('/test', credentials: creds) 
+        
+        # or pass credentials set name
+        req2 = PensioAPI::Request.new('/test', credentials: :ticketing)
+        
+        expect(req1.send(:request_options, {})[:basic_auth]).to_not be_nil
+        expect(req1.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+        
+        expect(req2.send(:request_options, {})[:basic_auth]).to_not be_nil
+        expect(req2.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+      end
+    end
   end
 
   describe 'error handling' do
@@ -107,11 +128,7 @@ describe PensioAPI::Request do
 
     context 'with incomplete credentials' do
       before :each do
-        PensioAPI::Credentials = OpenStruct.new({
-          base_uri: nil,
-          username: nil,
-          password: nil
-        })
+        PensioAPI::Credentials.base_uri = nil
       end
 
       it 'raises a PensioAPI::Errors::NoCredentials error' do

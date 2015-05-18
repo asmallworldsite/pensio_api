@@ -11,6 +11,10 @@ PensioAPI::Credentials.username = 'Your pensio username'
 PensioAPI::Credentials.password = 'Your pensio password'
 ```
 
+This is sufficient in the simple case where you only have a single integration with Pensio, using a single set of credentials.
+
+If you require support for multiple connections to Pensio's API, using different sets of credentials, you must define named 'credentials sets' - see below under [Multiple Credentials Sets](#multiple-credentials-sets).
+
 ## Transactions
 
 To query transactions in your Pensio gateway, use the method `PensioAPI::Transaction.find`. This takes a number of parameters as defined in the Pensio documentation. For example:
@@ -66,6 +70,38 @@ The library provides two generic error classes for requests.
 * `PensioAPI::Errors::GatewayError` is raised when the parameters have been provided correctly, but the gateway was unable to process the request
 
 Additionally, a third error class `PensioAPI::NoCredentials` is raised if credentials have not been provided. See "Getting Started" for more details.
+
+## Multiple Credentials Sets
+
+If you require multiple connections to Pensio's API using different credentials, you must set up named credentials sets.  For example, if you need separate credentials for your membership payments and ticket sales, you can configure them as follows:
+
+```
+PensioAPI::Credentials.for(:membership).base_uri = 'Your pensio gateway URI for memberships'
+PensioAPI::Credentials.for(:membership).username = 'Your pensio username for memberships'
+PensioAPI::Credentials.for(:membership).password = 'Your pensio password for memberships'
+```
+
+```
+PensioAPI::Credentials.for(:tickets).base_uri = 'Your pensio gateway URI for tickets'
+PensioAPI::Credentials.for(:tickets).username = 'Your pensio username for tickets'
+PensioAPI::Credentials.for(:tickets).password = 'Your pensio password for tickets'
+```
+
+In this case, you *must* also pass the credential set to each request, by including a 'credentials' key in the options hash.  The value should be a String or Symbol with the credential set name (e.g. :tickets, 'tickets'), or the PensioAPI::Credentials instance itself (e.g. PensioAPI::Credentials.for(:tickets)).  For example, these three examples are equivalent:
+
+```
+PensioAPI::Transaction.find(credentials: :tickets, transaction_id: '123')
+PensioAPI::Transaction.find(credentials: 'tickets', transaction_id: '123')
+PensioAPI::Transaction.find(credentials: PensioAPI::Credentials.for(:tickets), transaction_id: '123')
+```
+
+Typically if you have multiple credentials sets, the default credentials (i.e. PensioAPI::Credentials.base_uri etc) are ignored, and making any Pensio API requests without explicitly passing a 'credentials' argument will raise  `PensioAPI::NoCredentials`. However, if you have an existing Pensio integration using the simple default credentials approach and now want to also use a named credentials set, you can tell the library to explicitly allow this, by setting:
+
+```
+PensioAPI::Credentials.allow_defaults = true
+```
+
+In this scenario, requests performed without an explicit credentials set will use the default set, and those with named credentials will use those.  BE CAREFUL: If you accidentally omit the 'credentials' options key when making a request, it will use the default credentials set, which could lead to undesired behaviour.  This is why, by default, if you have multiple credentials sets, the default set is disabled.
 
 ## TODO
 
