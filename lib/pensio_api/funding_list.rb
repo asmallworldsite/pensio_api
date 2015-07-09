@@ -23,8 +23,8 @@ module PensioAPI
       @download_link = @raw['DownloadLink']
     end
 
-    def download
-      @result ||= FundingListRequest.new(@download_link).result
+    def download(options={})
+      @result ||= FundingListRequest.new(@download_link, options).result
     end
   end
 end
