@@ -1,5 +1,5 @@
 # PensioAPI
-This gem covers most of the Merchant and eCommerce API functionality provided by Pensio (http://www.pensio.com).
+This gem covers most of the Merchant and eCommerce API functionality provided by AltaPay, formerly Pensio (https://altapay.com).
 
 ## Getting Started
 
