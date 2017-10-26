@@ -1,5 +1,6 @@
 # PensioAPI
 This gem covers most of the Merchant and eCommerce API functionality provided by AltaPay, formerly Pensio (https://altapay.com).
+Main development work for this SDK was done by ASmallWorld (https://www.asmallworld.com)
 
 ## Getting Started
 
@@ -111,3 +112,11 @@ In this scenario, requests performed without an explicit credentials set will us
 ## Contributing
 
 Contributions are very welcome. Please submit pull requests with adequately-tested code.
+
+## Requirements
+### Developing under Ubuntu
+```
+sudo apt-get install ruby-all-dev
+sudo apt-get install ruby-bundler
+```
+After cloning run `bundle install`
