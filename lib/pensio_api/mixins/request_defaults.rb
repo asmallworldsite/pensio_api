@@ -1,6 +1,7 @@
 module PensioAPI
   module Mixins
     module RequestDefaults
+      
       def self.included(base)
         base.send(:include, HTTParty)
         base.send(:attr_reader, :response)
@@ -8,7 +9,8 @@ module PensioAPI
       end
 
       HEADERS = {
-        'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'
+        'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        'x-altapay-client-version' => 'RUBYSDK/' + PensioAPI::AltapayVersion.getVersion
       }
 
       def initialize(path, options={})
