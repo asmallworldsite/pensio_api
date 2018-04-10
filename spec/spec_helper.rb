@@ -3,7 +3,7 @@ require 'webmock/rspec'
 require 'httparty'
 require 'active_support'
 require 'pensio_api'
-require './spec/support/helpers'
+require_relative './support/helpers'
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
