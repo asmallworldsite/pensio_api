@@ -8,7 +8,8 @@ module PensioAPI
       end
 
       HEADERS = {
-        'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8'
+        'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
+        'x-altapay-client-version' => "RUBYSDK/#{PensioAPI::VERSION}"
       }
 
       def initialize(path, options={})
