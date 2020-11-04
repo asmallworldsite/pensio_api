@@ -91,7 +91,7 @@ describe PensioAPI::Transaction do
 
     context 'when the full reserved amount has not been captured' do
       it 'returns false' do
-        transaction.stub(:captured_amount).and_return(BigDecimal('0'))
+        allow(transaction).to receive(:captured_amount).and_return(BigDecimal('0'))
         expect(transaction).to_not be_captured
       end
     end

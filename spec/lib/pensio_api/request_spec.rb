@@ -3,12 +3,12 @@ require 'spec_helper'
 describe PensioAPI::Request do
   describe '.new' do
     before :each do
-      PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+      allow(PensioAPI::Request).to receive(:post).and_return(construct_response(nil))
     end
 
     it 'POSTs to the given API path and passes in request options' do
       request_options = PensioAPI::Request.new('/test').send(:request_options, {})
-      PensioAPI::Request.should_receive(:post).with('/test', request_options)
+      expect(PensioAPI::Request).to receive(:post).with('/test', request_options)
       PensioAPI::Request.new('/test')
     end
   end
@@ -16,7 +16,7 @@ describe PensioAPI::Request do
   describe '.response_contains' do
     context 'with a populated response body' do
       before :each do
-        PensioAPI::Request.stub(:post).and_return(
+        allow(PensioAPI::Request).to receive(:post).and_return(
           construct_response({
               'Test' => 'true'
             })
@@ -40,7 +40,7 @@ describe PensioAPI::Request do
 
     context 'with an empty response body' do
       before :each do
-        PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+        allow(PensioAPI::Request).to receive(:post).and_return(construct_response(nil))
       end
 
       let(:request) { PensioAPI::Request.new('/test') }
@@ -53,7 +53,7 @@ describe PensioAPI::Request do
 
   describe '.request_options' do
     before :each do
-      PensioAPI::Request.stub(:post).and_return(construct_response(nil))
+      allow(PensioAPI::Request).to receive(:post).and_return(construct_response(nil))
     end
 
     let(:p) { PensioAPI::Request.new('/test') }

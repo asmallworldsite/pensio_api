@@ -37,7 +37,7 @@ describe PensioAPI::Responses::SubscriptionCharge do
 
   describe '.captured?' do
     it 'delegates .captured? to the new transaction' do
-      response.new.should_receive(:captured?)
+      expect(response).to receive(:captured?)
       response.captured?
     end
 
