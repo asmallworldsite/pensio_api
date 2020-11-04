@@ -51,7 +51,7 @@ describe PensioAPI::Transaction do
       end
 
       it 'maps transactions to transaction objects' do
-        expect(response.all? { |r| r.class == PensioAPI::Transaction }).to be_true
+        expect(response.all? { |r| r.class == PensioAPI::Transaction }).to be true
       end
 
       specify { expect(response.transactions.length).to eq(1) }

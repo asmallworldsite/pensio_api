@@ -9,7 +9,7 @@ describe PensioAPI::Responses::Transaction do
 
   describe 'object mapping' do
     it 'maps transactions to transaction objects' do
-      expect(response.transactions.all? { |r| r.class == PensioAPI::Transaction }).to be_true
+      expect(response.transactions.all? { |r| r.class == PensioAPI::Transaction }).to be true
     end
 
     specify { expect(response.transactions.length).to eq(1) }

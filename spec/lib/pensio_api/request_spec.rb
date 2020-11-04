@@ -27,13 +27,13 @@ describe PensioAPI::Request do
 
       context 'given a valid key' do
         it 'returns true' do
-          expect(request.response_contains?('Test')).to be_true
+          expect(request.response_contains?('Test')).to be true
         end
       end
 
       context 'given an invalid key' do
         it 'returns false' do
-          expect(request.response_contains?('OtherTest')).to be_false
+          expect(request.response_contains?('OtherTest')).to be false
         end
       end
     end
@@ -46,7 +46,7 @@ describe PensioAPI::Request do
       let(:request) { PensioAPI::Request.new('/test') }
 
       it 'returns false' do
-        expect(request.response_contains?('Test')).to be_false
+        expect(request.response_contains?('Test')).to be false
       end
     end
   end
