@@ -1,6 +1,8 @@
 # PensioAPI
 This gem covers most of the Merchant and eCommerce API functionality provided by AltaPay, formerly Pensio (https://altapay.com).
 
+Ruby 2.4.x or later is recommended.
+
 ## Getting Started
 
 First, register your Pensio credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
