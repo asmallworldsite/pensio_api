@@ -9,7 +9,7 @@ module PensioAPI
         @transaction = PensioAPI::Transaction.new(
           transactions['Transaction']
         )
-        @refund_amount = BigDecimal.new(@raw['RefundedAmount'])
+        @refund_amount = BigDecimal(@raw['RefundedAmount'])
         @refund_currency = @raw['RefundCurrency'].to_i
       end
     end

@@ -11,7 +11,7 @@ describe PensioAPI::ChargebackEvent do
     end
 
     describe 'reason_code' do
-      specify { expect(chargeback_event.reason_code).to be_an_instance_of(Fixnum) }
+      specify { expect(chargeback_event.reason_code).to be_an_instance_of(Integer) }
     end
 
     describe 'reason' do

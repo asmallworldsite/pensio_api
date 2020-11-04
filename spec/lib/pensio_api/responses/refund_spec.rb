@@ -12,7 +12,7 @@ describe PensioAPI::Responses::Refund do
 
   describe 'readable attributes' do
     specify { expect(response.transaction).to be_an_instance_of(PensioAPI::Transaction) }
-    specify { expect(response.refund_amount).to eq(BigDecimal.new('0.12')) }
+    specify { expect(response.refund_amount).to eq(BigDecimal('0.12')) }
     specify { expect(response.refund_currency).to eq(978) }
   end
 end
