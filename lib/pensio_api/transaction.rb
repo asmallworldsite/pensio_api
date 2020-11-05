@@ -15,6 +15,7 @@ module PensioAPI
     attr_reader :order_id
     attr_reader :merchant_currency
     attr_reader :card_holder_currency
+    attr_reader :payment_source
     attr_reader :chargeback_events
 
     # constants for transaction statuses
@@ -31,10 +32,10 @@ module PensioAPI
 
       @status = @raw['TransactionStatus']
 
-      @captured_amount = BigDecimal.new(@raw['CapturedAmount'])
-      @reserved_amount = BigDecimal.new(@raw['ReservedAmount'])
-      @refunded_amount = BigDecimal.new(@raw['RefundedAmount'])
-      @recurring_default_amount = BigDecimal.new(@raw['RecurringDefaultAmount'])
+      @captured_amount = BigDecimal(@raw['CapturedAmount'])
+      @reserved_amount = BigDecimal(@raw['ReservedAmount'])
+      @refunded_amount = BigDecimal(@raw['RefundedAmount'])
+      @recurring_default_amount = BigDecimal(@raw['RecurringDefaultAmount'])
 
       @card_status = @raw['CardStatus']
       @card_token = @raw['CreditCardToken']
@@ -44,6 +45,8 @@ module PensioAPI
 
       @merchant_currency = @raw['MerchantCurrency'].to_i
       @card_holder_currency = @raw['CardHolderCurrency'].to_i
+
+      @payment_source = @raw['PaymentSource']
 
       map_chargeback_events
     end

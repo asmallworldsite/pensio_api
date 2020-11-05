@@ -9,7 +9,7 @@ module PensioAPI
     def initialize(path, options={})
       super(path, options)
 
-      @result = CSV.parse(@response.parsed_response, col_sep: ';', headers: true).reject(&:empty?)
+      @result = CSV.parse(@response.body, col_sep: ';', headers: true).reject(&:empty?)
     end
   end
 end

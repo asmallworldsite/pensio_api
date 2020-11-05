@@ -40,7 +40,7 @@ describe PensioAPI::Responses::Base do
     context 'with a successful response' do
       context 'with success specified in the response body' do
         it 'returns true' do
-          expect(response_object.success?).to be_true
+          expect(response_object.success?).to be true
         end
       end
 
@@ -60,7 +60,7 @@ describe PensioAPI::Responses::Base do
         let(:response_object) { PensioAPI::Responses::Base.new(test_data) }
 
         it 'returns true' do
-          expect(response_object.success?).to be_true
+          expect(response_object.success?).to be true
         end
       end
     end

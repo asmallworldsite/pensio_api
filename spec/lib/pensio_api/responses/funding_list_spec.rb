@@ -16,7 +16,7 @@ describe PensioAPI::Responses::FundingList do
 
     describe '.page_count' do
       it 'returns a number of pages' do
-        expect(funding_list.page_count).to be_an_instance_of(Fixnum)
+        expect(funding_list.page_count).to be_an_instance_of(Integer)
       end
     end
   end

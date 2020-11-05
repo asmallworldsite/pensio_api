@@ -1,6 +1,10 @@
+lib = File.expand_path('lib', __dir__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'pensio_api/version'
+
 Gem::Specification.new do |s|
   s.name = 'pensio_api'
-  s.version = '0.3.3'
+  s.version = PensioAPI::VERSION
   s.license = 'BSD-3-Clause'
   s.summary = "Provides integration for the Pensio Merchant API"
   s.authors = ['Michael Sell', 'Rory Sinclair']

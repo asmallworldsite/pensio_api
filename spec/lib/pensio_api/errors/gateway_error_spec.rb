@@ -31,7 +31,7 @@ describe PensioAPI::Errors::GatewayError do
 
   describe 'object mapping' do
     it 'maps transactions to transaction objects' do
-      expect(error.transactions.all? { |r| r.class == PensioAPI::Transaction }).to be_true
+      expect(error.transactions.all? { |r| r.class == PensioAPI::Transaction }).to be true
     end
   end
 end

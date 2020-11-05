@@ -31,11 +31,11 @@ describe PensioAPI::Transaction do
     end
 
     describe '.merchant_currency' do
-      specify { expect(transaction.merchant_currency).to be_an_instance_of(Fixnum) }
+      specify { expect(transaction.merchant_currency).to be_an_instance_of(Integer) }
     end
 
     describe '.card_holder_currency' do
-      specify { expect(transaction.card_holder_currency).to be_an_instance_of(Fixnum) }
+      specify { expect(transaction.card_holder_currency).to be_an_instance_of(Integer) }
     end
 
     describe '.chargeback_events' do
@@ -51,7 +51,7 @@ describe PensioAPI::Transaction do
       end
 
       it 'maps transactions to transaction objects' do
-        expect(response.all? { |r| r.class == PensioAPI::Transaction }).to be_true
+        expect(response.all? { |r| r.class == PensioAPI::Transaction }).to be true
       end
 
       specify { expect(response.transactions.length).to eq(1) }
@@ -91,7 +91,7 @@ describe PensioAPI::Transaction do
 
     context 'when the full reserved amount has not been captured' do
       it 'returns false' do
-        transaction.stub(:captured_amount).and_return(BigDecimal.new('0'))
+        allow(transaction).to receive(:captured_amount).and_return(BigDecimal('0'))
         expect(transaction).to_not be_captured
       end
     end
