@@ -1,6 +1,7 @@
 module PensioAPI
   module Mixins
     module RequestDefaults
+      
       def self.included(base)
         base.send(:include, HTTParty)
         base.send(:attr_reader, :response)
