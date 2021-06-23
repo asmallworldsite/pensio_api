@@ -15,6 +15,7 @@ options = {
     'amount' => 12.22,
     'currency' => "EUR",
     'type' => 'paymentAndCapture'
+
 }
 
 puts PensioAPI::Ecommerce.create_payment_request(options).url

@@ -133,4 +133,5 @@ Contributions are very welcome. Please submit pull requests with adequately-test
 sudo apt-get install ruby-all-dev
 sudo apt-get install ruby-bundler
 ```
+
 After cloning run `bundle install`
