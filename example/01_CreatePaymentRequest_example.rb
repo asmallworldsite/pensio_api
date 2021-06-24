@@ -13,7 +13,9 @@ options = {
     'terminal' => 'AltaPay Test Terminal',
     'shop_orderid' => 'Ruby_Test_Order123',
     'amount' => 12.22,
-    'currency' => "EUR"
+    'currency' => "EUR",
+    'type' => 'paymentAndCapture'
+
 }
 
 puts PensioAPI::Ecommerce.create_payment_request(options).url

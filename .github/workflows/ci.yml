@@ -1,0 +1,26 @@
+name: TestCode
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  rspec-tests:
+    name: Rspec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
+          bundler-cache: true
+      - name: install rspec
+        run: gem install rspec
+      - name: install gems
+        run: bundle install
+      - name: Check code
+        run: bundle exec rspec

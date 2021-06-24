@@ -9,7 +9,7 @@ module PensioAPI
         @transaction = PensioAPI::Transaction.new(
           transactions['Transaction']
         )
-        @capture_amount = BigDecimal.new(@raw['CaptureAmount'])
+        @capture_amount = BigDecimal(@raw['CaptureAmount'])
         @capture_currency = @raw['CaptureCurrency'].to_i
       end
     end

@@ -13,7 +13,7 @@ module PensioAPI
       @type = @raw['Type']
       @reason_code = @raw['ReasonCode'].to_i
       @reason = @raw['Reason']
-      @amount = BigDecimal.new(@raw['Amount'])
+      @amount = BigDecimal(@raw['Amount'])
       @currency = @raw['Currency']
       @acquirer_transaction_id = @raw['AcquirerTransactionId']
     end

@@ -12,7 +12,7 @@ module PensioAPI
     end
 
     def response_contains?(key)
-      @body && @body.has_key?(key)
+      !!@body && @body.has_key?(key)
     end
   end
 end

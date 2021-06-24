@@ -25,7 +25,7 @@ describe PensioAPI::Errors::BadRequest do
     end
 
     describe '.error_code' do
-      specify { expect(error.error_code).to be_an_instance_of(Fixnum) }
+      specify { expect(error.error_code).to be_an_instance_of(Integer) }
     end
   end
 end

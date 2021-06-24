@@ -9,7 +9,7 @@ describe PensioAPI::Responses::Terminal do
 
   describe 'object mapping' do
     it 'maps terminals to terminal objects' do
-      expect(response.terminals.all? { |r| r.class == PensioAPI::Terminal }).to be_true
+      expect(response.terminals.all? { |r| r.class == PensioAPI::Terminal }).to be true
     end
 
     specify { expect(response.terminals.length).to eq(2) }
