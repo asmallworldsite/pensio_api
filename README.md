@@ -6,16 +6,16 @@ Ruby 2.4.x or later is recommended.
 
 ## Getting Started
 
-Please install Gem if you are using Ruby application following command will install
+Please install Gem if you are using Ruby application using following command.
 
 ```
 gem install pensio_api
 ```
 
-if You are using rails or bundler application the add following lines in your `Gemfile`
+if You are using Rails or bundler application then add following line in your `Gemfile`
 
 ```
-gem "pensio_api", "~> 0.3.5"
+gem "pensio_api", "~> 0.3.4"
 ```
 
 First, register your Pensio credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:

@@ -1,6 +1,6 @@
 require 'active_support/core_ext/string/inflections'
 
-require 'pensio_api/altapay_version'
+require 'pensio_api/version'
 
 require 'pensio_api/mixins/id'
 require 'pensio_api/mixins/has_transactions'
