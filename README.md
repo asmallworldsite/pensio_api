@@ -6,16 +6,16 @@ Ruby 2.4.x or later is recommended.
 
 ## Getting Started
 
-Please install Gem if you are using Ruby application following command will install
+Please install Gem if you are using Ruby application using following command.
 
 ```
 gem install pensio_api
 ```
 
-if You are using rails or bundler application the add following lines in your `Gemfile`
+if You are using Rails or bundler application then add following line in your `Gemfile`
 
 ```
-gem "pensio_api", "~> 0.3.5"
+gem "pensio_api", "~> 0.3.4"
 ```
 
 First, register your Pensio credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
@@ -117,6 +117,11 @@ PensioAPI::Credentials.allow_defaults = true
 ```
 
 In this scenario, requests performed without an explicit credentials set will use the default set, and those with named credentials will use those.  BE CAREFUL: If you accidentally omit the 'credentials' options key when making a request, it will use the default credentials set, which could lead to undesired behaviour.  This is why, by default, if you have multiple credentials sets, the default set is disabled.
+
+### 0.3.4
+
+- Supports API changes from 20210324
+
 
 ## TODO
 
