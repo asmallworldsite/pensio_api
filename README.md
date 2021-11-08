@@ -118,6 +118,11 @@ PensioAPI::Credentials.allow_defaults = true
 
 In this scenario, requests performed without an explicit credentials set will use the default set, and those with named credentials will use those.  BE CAREFUL: If you accidentally omit the 'credentials' options key when making a request, it will use the default credentials set, which could lead to undesired behaviour.  This is why, by default, if you have multiple credentials sets, the default set is disabled.
 
+### [Unreleased]
+
+- Update User-Agent header
+
+
 ### 0.3.4
 
 - Supports API changes from 20210324
