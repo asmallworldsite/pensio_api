@@ -139,21 +139,18 @@ After cloning run `bundle install`
 
 
 
-Changelog
-=========
 
-See `Changelog <CHANGELOG.rst>`_ for all the release notes.
+## Changelog
 
-License
-=======
+See [Changelog](CHANGELOG.md) for all the release notes.
 
-Distributed under the MIT License. See `LICENSE <LICENSE>`_ for more information.
+## License
 
-Documentation
-=============
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
-For more details please see `AltaPay docs <http://altapay.readthedocs.org/en/latest/>`_
+## Documentation
 
-Contact
-=======
+For more details please see [AltaPay docs](https://documentation.altapay.com/)
+
+## Contact
 Feel free to contact our support team (support@altapay.com) if you need any assistance.
