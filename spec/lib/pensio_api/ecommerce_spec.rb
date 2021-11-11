@@ -13,7 +13,8 @@ describe PensioAPI::Ecommerce do
                                                         {:basic_auth => {:username => "test_user", :password => "password"},
                                                          :headers => {
                                                              "Content-Type" => "application/x-www-form-urlencoded; charset=utf-8",
-                                                             'x-altapay-client-version' => "RUBYSDK/#{PensioAPI::VERSION}"
+                                                             'x-altapay-client-version' => "RUBYSDK/#{PensioAPI::VERSION}",
+                                                             'User-Agent' => "sdk-ruby/#{PensioAPI::VERSION}"
                                                          },
                                                          :body => {:terminal => "Pensio Test Terminal",
                                                                    :shop_orderid => "Test Payment",
