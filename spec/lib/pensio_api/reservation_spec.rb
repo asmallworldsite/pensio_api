@@ -5,7 +5,7 @@ describe PensioAPI::Reservation do
     stub_pensio_response('/merchant/API/payments', 'payments')
     stub_pensio_response('/merchant/API/captureReservation', 'capture_reservation')
     stub_pensio_response('/merchant/API/releaseReservation', 'release_reservation')
-    stub_pensio_response('/merchant/API/reservationOfFixedAmount', 'reservation_of_fixed_amount')
+    stub_pensio_response('/merchant/API/reservation', 'reservation_of_fixed_amount')
   end
 
   let(:transaction) { PensioAPI::Transaction.find.first }

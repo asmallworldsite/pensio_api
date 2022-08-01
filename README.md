@@ -59,7 +59,7 @@ To query terminals, use the method `PensioAPI::Terminal.all`. This will return a
 
 ## Reservations
 
-To create a fixed amount reservation (via the API call '/merchant/API/reservationOfFixedAmount') use the class method `PensioAPI::Reservation.of_fixed_amount`.
+To create a fixed amount reservation (via the API call '/merchant/API/reservation') use the class method `PensioAPI::Reservation.of_fixed_amount`.
 
 To capture an existing reservation, use `.capture`. Likewise to release it, use `.release`.
 

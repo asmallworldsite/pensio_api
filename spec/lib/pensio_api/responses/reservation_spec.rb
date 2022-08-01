@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Responses::Reservation do
   before :each do
-    stub_pensio_response('/merchant/API/reservationOfFixedAmount', 'reservation_of_fixed_amount')
+    stub_pensio_response('/merchant/API/reservation', 'reservation_of_fixed_amount')
   end
 
   let(:response) { PensioAPI::Reservation.of_fixed_amount(reservation_arguments) }
