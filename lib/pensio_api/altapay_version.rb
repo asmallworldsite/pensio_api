@@ -1,3 +1,3 @@
 module PensioAPI
-  ALTAPAY_VERSION = '0.3.5'.freeze
+  ALTAPAY_VERSION = '0.3.6'.freeze
 end
