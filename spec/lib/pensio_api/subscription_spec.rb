@@ -31,7 +31,7 @@ describe PensioAPI::Subscription do
 
   describe 'subscription_options' do
     it 'wraps transaction_id' do
-      expect(subscription.send(:subscription_options)[:transaction_id]).to eq('1')
+      expect(subscription.send(:subscription_options)[:agreement][:id]).to eq('1')
     end
   end
 end
