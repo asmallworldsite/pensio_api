@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.3.6]
+
+- Update the 'Reservation' endpoint `reservationOfFixedAmount` to `reservation`
+- Add support for new 'Agreements Engine' parameters
+- Add support for Apple Pay
+
 ## [0.3.5]
 
 - Update format of the User-Agent header

@@ -15,7 +15,7 @@ gem install pensio_api
 if You are using Rails or bundler application then add following line in your `Gemfile`
 
 ```
-gem "pensio_api", "~> 0.3.5"
+gem "pensio_api", "~> 0.3.6"
 ```
 
 First, register your AltaPay credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
@@ -59,7 +59,7 @@ To query terminals, use the method `PensioAPI::Terminal.all`. This will return a
 
 ## Reservations
 
-To create a fixed amount reservation (via the API call '/merchant/API/reservationOfFixedAmount') use the class method `PensioAPI::Reservation.of_fixed_amount`.
+To create a fixed amount reservation (via the API call '/merchant/API/reservation') use the class method `PensioAPI::Reservation.of_fixed_amount`.
 
 To capture an existing reservation, use `.capture`. Likewise to release it, use `.release`.
 

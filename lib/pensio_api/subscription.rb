@@ -24,7 +24,7 @@ module PensioAPI
     private
 
     def subscription_options
-      { transaction_id: @transaction.id }
+      { agreement: { id: @transaction.id } }
     end
   end
 end
