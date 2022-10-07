@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Responses
     class GatewayURL < Base

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   class FundingList
     attr_reader :filename
@@ -7,7 +9,7 @@ module PensioAPI
     attr_reader :created_at
     attr_reader :download_link
 
-    def self.all(options={})
+    def self.all(options = {})
       request = Request.new('/merchant/API/fundingList', options)
       Responses::FundingList.new(request)
     end
@@ -23,8 +25,8 @@ module PensioAPI
       @download_link = @raw['DownloadLink'].strip
     end
 
-    def download(options={})
-      @result ||= FundingListRequest.new(@download_link, options).result
+    def download(options = {})
+      @download ||= FundingListRequest.new(@download_link, options).result
     end
   end
 end

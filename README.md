@@ -1,7 +1,7 @@
 # PensioAPI
 This gem covers most of the Merchant and eCommerce API functionality provided by AltaPay, formerly Pensio (https://altapay.com).
 
-Ruby 2.4.x or later is recommended.
+Ruby 2.7.x or later is required.
 
 ## Getting Started
 
@@ -46,7 +46,7 @@ To query terminals, use the method `PensioAPI::Terminal.all`. This will return a
 
 ## Reservations
 
-To create a fixed amount reservation (via the API call '/merchant/API/reservationOfFixedAmount') use the class method `PensioAPI::Reservation.of_fixed_amount`.
+To create a reservation (via the API call '/merchant/API/reservation') use the class method `PensioAPI::Reservation.create`.
 
 To capture an existing reservation, use `.capture`. Likewise to release it, use `.release`.
 

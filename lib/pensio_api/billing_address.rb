@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   class BillingAddress
     attr_reader :first_name, :last_name, :street_address, :city, :region, :postal_code, :country

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Errors
-    class BadRequest < StandardError
+    class BadRequest < Error
       attr_reader :request_time, :request_path, :error_code
 
       def initialize(request)

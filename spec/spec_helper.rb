@@ -1,7 +1,5 @@
 require 'bundler/setup'
 require 'webmock/rspec'
-require 'httparty'
-require 'active_support'
 require 'pensio_api'
 require './spec/support/helpers'
 

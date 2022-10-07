@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Errors
-    class GatewayError < StandardError
+    class GatewayError < Error
       include Mixins::HasTransactions
       attr_reader :request_time, :request_path, :cardholder_message
 

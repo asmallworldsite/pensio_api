@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module PensioAPI
   class Request
     include Mixins::RequestDefaults
 
     attr_reader :headers, :body
 
-    def initialize(path, options={})
+    def initialize(path, options = {})
       super(path, options)
 
       @headers = @response.parsed_response['APIResponse']['Header']
@@ -12,7 +14,7 @@ module PensioAPI
     end
 
     def response_contains?(key)
-      !!@body && @body.has_key?(key)
+      !!@body && @body.key?(key)
     end
   end
 end

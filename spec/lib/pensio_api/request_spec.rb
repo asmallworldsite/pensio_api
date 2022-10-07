@@ -82,23 +82,23 @@ describe PensioAPI::Request do
         expect(p.send(:request_options, {transaction_id: 5432})[:body][:transaction_id]).to eq(5432)
       end
     end
-    
+
     context 'with alternative credentials' do
       it 'sends the correct credentials' do
         creds = PensioAPI::Credentials.for(:ticketing)
         creds.base_uri = 'https://www.test.com'
         creds.username = 'ticketing_username'
         creds.password = 'ticketing_password'
-        
+
         # pass credentials instance
-        req1 = PensioAPI::Request.new('/test', credentials: creds) 
-        
+        req1 = PensioAPI::Request.new('/test', credentials: creds)
+
         # or pass credentials set name
         req2 = PensioAPI::Request.new('/test', credentials: :ticketing)
-        
+
         expect(req1.send(:request_options, {})[:basic_auth]).to_not be_nil
         expect(req1.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
-        
+
         expect(req2.send(:request_options, {})[:basic_auth]).to_not be_nil
         expect(req2.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
       end
@@ -112,7 +112,7 @@ describe PensioAPI::Request do
       end
 
       it 'raises a PensioAPI::Errors::BadRequest error' do
-        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::BadRequest)
+        expect { PensioAPI::Transaction.find }.to raise_error PensioAPI::Errors::BadRequest
       end
     end
 
@@ -122,7 +122,7 @@ describe PensioAPI::Request do
       end
 
       it 'raises a PensioAPI::Errors::GatewayError' do
-        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::GatewayError)
+        expect { PensioAPI::Transaction.find }.to raise_error PensioAPI::Errors::GatewayError
       end
     end
 
@@ -132,7 +132,7 @@ describe PensioAPI::Request do
       end
 
       it 'raises a PensioAPI::Errors::NoCredentials error' do
-        expect(->{ PensioAPI::Transaction.find }).to raise_error(PensioAPI::Errors::NoCredentials)
+        expect { PensioAPI::Transaction.find }.to raise_error PensioAPI::Errors::NoCredentials
       end
     end
   end

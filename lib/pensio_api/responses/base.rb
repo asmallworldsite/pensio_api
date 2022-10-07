@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Responses
     class Base
@@ -25,7 +27,7 @@ module PensioAPI
       end
 
       def body_ok?
-        !@raw.has_key?('Result') || ['Success', 'OK', nil].include?(@raw['Result'])
+        !@raw.key?('Result') || ['Success', 'OK', nil].include?(@raw['Result'])
       end
 
       def chargeback?

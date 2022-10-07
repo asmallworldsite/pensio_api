@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Mixins
     module RequestDefaults
@@ -10,13 +12,13 @@ module PensioAPI
       HEADERS = {
         'Content-Type' => 'application/x-www-form-urlencoded; charset=utf-8',
         'x-altapay-client-version' => "RUBYSDK/#{PensioAPI::VERSION}"
-      }
+      }.freeze
 
-      def initialize(path, options={})
+      def initialize(path, options = {})
         @credentials = options.delete(:credentials)
         @credentials = PensioAPI::Credentials.for(@credentials.to_sym) unless @credentials.nil? || @credentials.is_a?(PensioAPI::Credentials)
         @credentials ||= PensioAPI::Credentials.default_credentials if PensioAPI::Credentials.credentials_mode == :default || PensioAPI::Credentials.allow_defaults
-        raise Errors::NoCredentials unless @credentials && @credentials.supplied?
+        raise Errors::NoCredentials unless @credentials&.supplied?
 
         self.class.base_uri @credentials.base_uri unless self.class.base_uri
 
@@ -42,7 +44,6 @@ module PensioAPI
           password: @credentials.password
         }
       end
-
     end
   end
 end

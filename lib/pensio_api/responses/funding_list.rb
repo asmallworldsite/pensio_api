@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Responses
     class FundingList < Base
@@ -10,14 +12,12 @@ module PensioAPI
 
         map_funding_lists
 
-        @page_count = if @raw['Fundings']
-          (@raw['Fundings']['numberOfPages'] || 0).to_i
-        else
-          0
-        end
+        @page_count = Integer(@raw.dig('Fundings', 'numberOfPages') || 0)
       end
 
       def each
+        return enum_for(:each) unless block_given?
+
         @funding_lists.each { |fl| yield fl }
       end
 
@@ -25,18 +25,18 @@ module PensioAPI
 
       def map_funding_lists
         @funding_lists = if raw_funding_lists.is_a?(Array)
-          raw_funding_lists.map { |fl| PensioAPI::FundingList.new(fl) }
-        else
-          [PensioAPI::FundingList.new(raw_funding_lists)]
-        end
+                           raw_funding_lists.map { |fl| PensioAPI::FundingList.new(fl) }.freeze
+                         else
+                           [PensioAPI::FundingList.new(raw_funding_lists)].freeze
+                         end
       end
 
       def raw_funding_lists
         @raw_funding_lists ||= if @raw['Fundings'] && raw['Fundings']['Funding']
-          @raw['Fundings']['Funding']
-        else
-          []
-        end
+                                 @raw['Fundings']['Funding']
+                               else
+                                 []
+                               end
       end
     end
   end

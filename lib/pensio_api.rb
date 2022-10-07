@@ -1,8 +1,8 @@
-require 'active_support/core_ext/string/inflections'
+require 'httparty'
+require 'multi_xml'
 
 require 'pensio_api/version'
 
-require 'pensio_api/mixins/id'
 require 'pensio_api/mixins/has_transactions'
 require 'pensio_api/mixins/method_missing'
 require 'pensio_api/mixins/request_defaults'
@@ -21,6 +21,7 @@ require 'pensio_api/transaction'
 require 'pensio_api/terminal'
 require 'pensio_api/subscription'
 
+require 'pensio_api/errors/error'
 require 'pensio_api/errors/bad_request'
 require 'pensio_api/errors/gateway_error'
 require 'pensio_api/errors/no_credentials'

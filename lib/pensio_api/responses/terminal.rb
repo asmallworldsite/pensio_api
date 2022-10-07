@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   module Responses
     class Terminal < Base
@@ -12,6 +14,8 @@ module PensioAPI
       end
 
       def each
+        return enum_for(:each) unless block_given?
+
         @terminals.each { |t| yield t }
       end
 
@@ -23,18 +27,18 @@ module PensioAPI
 
       def map_terminals
         @terminals = if raw_terminals.is_a?(Array)
-          raw_terminals.map { |t| PensioAPI::Terminal.new(t) }
-        else
-          [PensioAPI::Terminal.new(raw_terminals)]
-        end
+                       raw_terminals.map { |t| PensioAPI::Terminal.new(t) }.freeze
+                     else
+                       [PensioAPI::Terminal.new(raw_terminals)].freeze
+                     end
       end
 
       def raw_terminals
         @raw_terminals ||= if @raw['Terminals']
-          @raw['Terminals']['Terminal']
-        else
-          []
-        end
+                             @raw['Terminals']['Terminal']
+                           else
+                             []
+                           end
       end
     end
   end
