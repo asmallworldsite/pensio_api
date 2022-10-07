@@ -2,10 +2,10 @@ require 'spec_helper'
 
 describe PensioAPI::Responses::Reservation do
   before :each do
-    stub_pensio_response('/merchant/API/reservationOfFixedAmount', 'reservation_of_fixed_amount')
+    stub_pensio_response('/merchant/API/reservation', 'reservation')
   end
 
-  let(:response) { PensioAPI::Reservation.of_fixed_amount(reservation_arguments) }
+  let(:response) { PensioAPI::Reservation.create(reservation_arguments) }
 
   specify { expect(response).to be_an_instance_of(PensioAPI::Responses::Reservation) }
 

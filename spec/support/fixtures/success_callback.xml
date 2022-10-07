@@ -2,7 +2,7 @@
 <APIResponse version="20130430">
   <Header>
     <Date>2014-01-16T15:58:53+01:00</Date>
-    <Path>API/reservationOfFixedAmount</Path>
+    <Path>API/reservation</Path>
     <ErrorCode>0</ErrorCode>
     <ErrorMessage/>
   </Header>

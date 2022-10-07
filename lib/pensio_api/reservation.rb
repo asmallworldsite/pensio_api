@@ -2,9 +2,12 @@
 
 module PensioAPI
   class Reservation
-    def self.of_fixed_amount(options = {})
-      request = Request.new('/merchant/API/reservationOfFixedAmount', options)
-      Responses::Reservation.new(request)
+    class << self
+      def create(options = {})
+        request = Request.new('/merchant/API/reservation', options)
+        Responses::Reservation.new(request)
+      end
+      alias_method :of_fixed_amount, :create
     end
 
     def initialize(transaction)
