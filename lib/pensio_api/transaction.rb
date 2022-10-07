@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module PensioAPI
   class Transaction
-    include Mixins::ID
     include Mixins::MethodMissing
     include Mixins::Timestamps
 
+    attr_reader :id
     attr_reader :status
     attr_reader :captured_amount
     attr_reader :reserved_amount
@@ -23,13 +25,14 @@ module PensioAPI
     STATUS_RELEASED = 'released'
     STATUS_CAPTURED = 'captured'
     STATUS_CAPTURED_FAILED = 'captured_failed'
-    
-    RESERVATION_SUCCESS_STATUSES = [STATUS_RECURRING_CONFIRMED]
-    CHARGE_SUCCESS_STATUSES = [STATUS_CAPTURED]
-    
+
+    RESERVATION_SUCCESS_STATUSES = [STATUS_RECURRING_CONFIRMED].freeze
+    CHARGE_SUCCESS_STATUSES = [STATUS_CAPTURED].freeze
+
     def initialize(transaction_body)
       @raw = transaction_body
 
+      @id = @raw['TransactionId']
       @status = @raw['TransactionStatus']
 
       @captured_amount = BigDecimal(@raw['CapturedAmount'])
@@ -51,17 +54,17 @@ module PensioAPI
       map_chargeback_events
     end
 
-    def self.find(options={})
+    def self.find(options = {})
       request = Request.new('/merchant/API/payments', options)
       Responses::Transaction.new(request)
     end
 
     def captured?
-      captured_amount >= reserved_amount && CHARGE_SUCCESS_STATUSES.include?(self.transaction_status)
+      captured_amount >= reserved_amount && CHARGE_SUCCESS_STATUSES.include?(status)
     end
-    
+
     def reserved?
-      RESERVATION_SUCCESS_STATUSES.include?(self.transaction_status)
+      RESERVATION_SUCCESS_STATUSES.include?(status)
     end
 
     def to_reservation
@@ -72,8 +75,8 @@ module PensioAPI
       Subscription.new(self)
     end
 
-    def refund(options={})
-      request = Request.new('/merchant/API/refundCapturedReservation', options.merge(transaction_id: self.id))
+    def refund(options = {})
+      request = Request.new('/merchant/API/refundCapturedReservation', options.merge(transaction_id: id))
       Responses::Refund.new(request)
     end
 
@@ -82,27 +85,27 @@ module PensioAPI
     end
 
     def billing_address
-      @billing_address ||= if @raw.has_key?('CustomerInfo') && @raw['CustomerInfo'].has_key?('BillingAddress')
-        BillingAddress.new(@raw['CustomerInfo']['BillingAddress'])
-      end
+      @billing_address ||= if @raw.key?('CustomerInfo') && @raw['CustomerInfo'].key?('BillingAddress')
+                             BillingAddress.new(@raw['CustomerInfo']['BillingAddress'])
+                           end
     end
 
     private
-      
+
     def map_chargeback_events
       @chargeback_events = if raw_chargeback_events.is_a?(Array)
-        raw_chargeback_events.map { |c| PensioAPI::ChargebackEvent.new(c) }
-      else
-        [PensioAPI::ChargebackEvent.new(raw_chargeback_events)]
-      end
+                             raw_chargeback_events.map { |c| PensioAPI::ChargebackEvent.new(c) }.freeze
+                           else
+                             [PensioAPI::ChargebackEvent.new(raw_chargeback_events)].freeze
+                           end
     end
 
     def raw_chargeback_events
       @raw_chargeback_events ||= if @raw['ChargebackEvents']
-        @raw['ChargebackEvents']['ChargebackEvent']
-      else
-        []
-      end
+                                   @raw['ChargebackEvents']['ChargebackEvent']
+                                 else
+                                   []
+                                 end
     end
   end
 end

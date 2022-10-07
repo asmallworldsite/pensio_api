@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PensioAPI
   class ChargebackEvent
     attr_reader :type

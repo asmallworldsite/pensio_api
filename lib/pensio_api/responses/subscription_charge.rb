@@ -6,7 +6,10 @@ module PensioAPI
       def_delegators :new, :captured?
 
       def each
-        [existing, new].each { |t| yield t }
+        return enum_for(:each) unless block_given?
+
+        yield existing
+        yield new
       end
 
       def existing
