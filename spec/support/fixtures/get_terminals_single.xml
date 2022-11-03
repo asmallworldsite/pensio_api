@@ -22,6 +22,12 @@
           <Currency>DKK</Currency>
           <Currency>EUR</Currency>
         </Currencies>
+        <Methods>
+          <Method>CredoraxAcquirer</Method>
+          <Method>Przelewy24Acquirer</Method>
+          <Method>KlarnaPaymentsAcquirer</Method>
+          <Method>IdealAcquirer</Method>
+        </Methods>
       </Terminal>
     </Terminals>
   </Body>
