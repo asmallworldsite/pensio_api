@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<APIResponse version="20100929">
+<APIResponse version="20170228">
   <Header>
-    <Date>2011-05-11T23:43:20+02:00</Date>
+    <Date>2022-11-02T08:31:54+01:00</Date>
     <Path>API/getTerminals</Path>
     <ErrorCode>0</ErrorCode>
     <ErrorMessage></ErrorMessage>
@@ -10,7 +10,7 @@
     <Result>OK</Result>
     <Terminals>
       <Terminal>
-        <Title>Pensio Multi-Nature Terminal</Title>
+        <Title>AltaPay Multi-Nature Terminal</Title>
         <Country>DK</Country>
         <Natures>
           <Nature>CreditCard</Nature>
@@ -22,9 +22,15 @@
           <Currency>DKK</Currency>
           <Currency>EUR</Currency>
         </Currencies>
+        <Methods>
+          <Method>CredoraxAcquirer</Method>
+          <Method>Przelewy24Acquirer</Method>
+          <Method>KlarnaPaymentsAcquirer</Method>
+          <Method>IdealAcquirer</Method>
+        </Methods>
       </Terminal>
       <Terminal>
-        <Title>Pensio Test Terminal</Title>
+        <Title>AltaPay BankPayment Terminal</Title>
         <Country></Country>
         <Natures>
           <Nature>BankPayment</Nature>
@@ -32,6 +38,9 @@
         <Currencies>
           <Currency>EUR</Currency>
         </Currencies>
+        <Methods>
+          <Method>IdealAcquirer</Method>
+        </Methods>
       </Terminal>
     </Terminals>
   </Body>
