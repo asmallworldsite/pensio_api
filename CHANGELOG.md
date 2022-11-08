@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.3.7]
+
+- Add support for new terminal properties i.e. country, natures, currencies, methods
+
 ## [0.3.6]
 
 - Update the 'Reservation' endpoint `reservationOfFixedAmount` to `reservation`
