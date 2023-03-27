@@ -25,7 +25,7 @@ module PensioAPI
       end
 
       def body_ok?
-        !@raw.has_key?('Result') || ['Success', 'OK', nil].include?(@raw['Result'])
+        !@raw.has_key?('Result') || ['Success', 'Redirect', 'OK', nil].include?(@raw['Result'])
       end
 
       def chargeback?
