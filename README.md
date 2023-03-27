@@ -15,7 +15,7 @@ gem install pensio_api
 if You are using Rails or bundler application then add following line in your `Gemfile`
 
 ```
-gem "pensio_api", "~> 0.3.7"
+gem "pensio_api", "~> 0.3.8"
 ```
 
 First, register your AltaPay credentials. For example, if you're using rails, create `config/initializers/pensio.rb` with the following contents:
