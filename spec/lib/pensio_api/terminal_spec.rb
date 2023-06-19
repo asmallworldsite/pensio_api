@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Terminal do
   before :each do
-    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals')
+    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals', method: :get)
   end
 
   describe '.all' do

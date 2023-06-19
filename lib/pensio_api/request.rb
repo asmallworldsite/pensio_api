@@ -6,8 +6,8 @@ module PensioAPI
 
     attr_reader :headers, :body
 
-    def initialize(path, options = {})
-      super(path, options)
+    def initialize(path, **options)
+      super(path, **options)
 
       @headers = @response.parsed_response['APIResponse']['Header']
       @body = @response.parsed_response['APIResponse']['Body']

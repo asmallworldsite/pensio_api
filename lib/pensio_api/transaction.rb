@@ -55,7 +55,7 @@ module PensioAPI
     end
 
     def self.find(options = {})
-      request = Request.new('/merchant/API/payments', options)
+      request = Request.new('/merchant/API/payments', **options, method: :get)
       Responses::Transaction.new(request)
     end
 
@@ -76,7 +76,7 @@ module PensioAPI
     end
 
     def refund(options = {})
-      request = Request.new('/merchant/API/refundCapturedReservation', options.merge(transaction_id: id))
+      request = Request.new('/merchant/API/refundCapturedReservation', **options.merge(transaction_id: id))
       Responses::Refund.new(request)
     end
 

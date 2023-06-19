@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::FundingListRequest do
   before :each do
-    stub_pensio_response('/merchant/API/fundingList', 'funding_list')
+    stub_pensio_response('/merchant/API/fundingList', 'funding_list', method: :get)
     stub_pensio_response("http://test_user:password@localhost/merchant.php/API/fundingDownload?id=1", 'funding_download', mime_type: 'text/csv', file_ext: 'csv', base_url: '')
   end
 

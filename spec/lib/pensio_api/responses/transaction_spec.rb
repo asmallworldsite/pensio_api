@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Responses::Transaction do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'payments')
+    stub_pensio_response('/merchant/API/payments', 'payments', method: :get)
   end
 
   let(:response) { PensioAPI::Transaction.find }
@@ -27,7 +27,7 @@ describe PensioAPI::Responses::Transaction do
 
       context 'with more than one transaction' do
         before :each do
-          stub_pensio_response('/merchant/API/payments', 'multiple_payments')
+          stub_pensio_response('/merchant/API/payments', 'multiple_payments', method: :get)
         end
 
         let(:response) { PensioAPI::Transaction.find }
@@ -44,7 +44,7 @@ describe PensioAPI::Responses::Transaction do
 
   context 'with no payments' do
     before :each do
-      stub_pensio_response('/merchant/API/payments', 'payments_none')
+      stub_pensio_response('/merchant/API/payments', 'payments_none', method: :get)
     end
 
     describe '.transactions' do

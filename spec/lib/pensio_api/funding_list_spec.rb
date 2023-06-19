@@ -5,7 +5,7 @@ describe PensioAPI::FundingList do
   let(:funding_list) { PensioAPI::FundingList.all.first }
 
   before :each do
-    stub_pensio_response('/merchant/API/fundingList', 'funding_list')
+    stub_pensio_response('/merchant/API/fundingList', 'funding_list', method: :get)
   end
 
   describe '.all' do

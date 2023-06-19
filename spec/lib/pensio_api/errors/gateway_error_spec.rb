@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Errors::GatewayError do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'pensio_error')
+    stub_pensio_response('/merchant/API/payments', 'pensio_error', method: :get)
   end
 
   let(:error) do
