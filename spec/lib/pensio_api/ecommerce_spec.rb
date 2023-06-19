@@ -19,7 +19,7 @@ describe PensioAPI::Ecommerce do
                                                                    :shop_orderid => "Test Payment",
                                                                    :amount => 123.45,
                                                                    :currency => "eur"},
-                                                         :timeout => 10, params: nil}).and_call_original
+                                                         :timeout => 10, query: nil}).and_call_original
       expect(response).to be_an_instance_of(PensioAPI::Responses::GatewayURL)
     end
   end
