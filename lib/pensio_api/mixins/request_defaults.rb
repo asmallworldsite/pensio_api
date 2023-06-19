@@ -44,7 +44,7 @@ module PensioAPI
           basic_auth: auth,
           headers: @request_headers.merge(HEADERS),
           body: body,
-          params: params
+          query: params
         }.tap do |request_options|
           request_options[:timeout] = @timeout if @timeout
         end
