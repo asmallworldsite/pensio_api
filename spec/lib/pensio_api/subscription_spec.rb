@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Subscription do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'payments')
+    stub_pensio_response('/merchant/API/payments', 'payments', method: :get)
     stub_pensio_response('/merchant/API/setupSubscription', 'setup_subscription')
     stub_pensio_response('/merchant/API/chargeSubscription', 'charge_subscription')
     stub_pensio_response('/merchant/API/reserveSubscriptionCharge', 'reserve_subscription_charge')

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Errors::BadRequest do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'bad_request_error')
+    stub_pensio_response('/merchant/API/payments', 'bad_request_error', method: :get)
   end
 
   let(:error) do

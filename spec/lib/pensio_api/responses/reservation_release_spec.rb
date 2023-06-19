@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Responses::ReservationRelease do
   before :each do
-    stub_pensio_response('/merchant/API/payments', 'payments')
+    stub_pensio_response('/merchant/API/payments', 'payments', method: :get)
     stub_pensio_response('/merchant/API/releaseReservation', 'release_reservation')
   end
 

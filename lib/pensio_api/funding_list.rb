@@ -10,7 +10,7 @@ module PensioAPI
     attr_reader :download_link
 
     def self.all(options = {})
-      request = Request.new('/merchant/API/fundingList', options)
+      request = Request.new('/merchant/API/fundingList', **options, method: :get)
       Responses::FundingList.new(request)
     end
 
@@ -26,7 +26,7 @@ module PensioAPI
     end
 
     def download(options = {})
-      @download ||= FundingListRequest.new(@download_link, options).result
+      @download ||= FundingListRequest.new(@download_link, **options).result
     end
   end
 end

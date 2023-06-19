@@ -7,7 +7,7 @@ describe PensioAPI::Request do
     end
 
     it 'POSTs to the given API path and passes in request options' do
-      request_options = PensioAPI::Request.new('/test').send(:request_options, {})
+      request_options = PensioAPI::Request.new('/test').send(:request_options, body: {})
       expect(PensioAPI::Request).to receive(:post).with('/test', request_options)
       PensioAPI::Request.new('/test')
     end
@@ -58,28 +58,30 @@ describe PensioAPI::Request do
 
     let(:p) { PensioAPI::Request.new('/test') }
 
-    specify { expect(p.send(:request_options, {})[:basic_auth]).to_not be_nil }
+    specify { expect(p.send(:request_options)[:basic_auth]).to_not be_nil }
 
     it 'appends basic auth to the options' do
-      expect(p.send(:request_options, {})[:basic_auth]).to eq(p.send(:auth))
+      expect(p.send(:request_options)[:basic_auth]).to eq(p.send(:auth))
     end
 
-    specify { expect(p.send(:request_options, {})[:headers]).to_not be_nil }
+    specify { expect(p.send(:request_options)[:headers]).to_not be_nil }
 
     it 'appends headers to the options' do
-      expect(p.send(:request_options, {})[:headers]).to eq(PensioAPI::Request::HEADERS)
+      expect(p.send(:request_options)[:headers]).to eq(PensioAPI::Request::HEADERS)
     end
 
     context 'with additional headers' do
+      let(:p) { PensioAPI::Request.new('/test', headers: { 'test' => '1234' }) }
+
       it 'merges given headers into the defaults' do
-        headers = p.send(:request_options, { headers: {'Test' => '1234'} })[:headers]
-        expect(headers).to eq({'Test' => '1234'}.merge(PensioAPI::Request::HEADERS))
+        headers = p.send(:request_options)[:headers]
+        expect(headers).to eq({'test' => '1234'}.merge(PensioAPI::Request::HEADERS))
       end
     end
 
     context 'with body parameters' do
       it 'assigns these to the body parameter' do
-        expect(p.send(:request_options, {transaction_id: 5432})[:body][:transaction_id]).to eq(5432)
+        expect(p.send(:request_options, body: {transaction_id: 5432})[:body][:transaction_id]).to eq(5432)
       end
     end
 
@@ -96,11 +98,11 @@ describe PensioAPI::Request do
         # or pass credentials set name
         req2 = PensioAPI::Request.new('/test', credentials: :ticketing)
 
-        expect(req1.send(:request_options, {})[:basic_auth]).to_not be_nil
-        expect(req1.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+        expect(req1.send(:request_options)[:basic_auth]).to_not be_nil
+        expect(req2.send(:request_options)[:basic_auth]).to eq({ username: creds.username, password: creds.password})
 
-        expect(req2.send(:request_options, {})[:basic_auth]).to_not be_nil
-        expect(req2.send(:request_options, {})[:basic_auth]).to eq({ username: creds.username, password: creds.password})
+        expect(req2.send(:request_options)[:basic_auth]).to_not be_nil
+        expect(req2.send(:request_options)[:basic_auth]).to eq({ username: creds.username, password: creds.password})
       end
     end
   end
@@ -108,7 +110,7 @@ describe PensioAPI::Request do
   describe 'error handling' do
     context 'with a bad request' do
       before :each do
-        stub_pensio_response('/merchant/API/payments', 'bad_request_error')
+        stub_pensio_response('/merchant/API/payments', 'bad_request_error', method: :get)
       end
 
       it 'raises a PensioAPI::Errors::BadRequest error' do
@@ -118,7 +120,7 @@ describe PensioAPI::Request do
 
     context 'with a gateway error' do
       before :each do
-        stub_pensio_response('/merchant/API/payments', 'pensio_error')
+        stub_pensio_response('/merchant/API/payments', 'pensio_error', method: :get)
       end
 
       it 'raises a PensioAPI::Errors::GatewayError' do

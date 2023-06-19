@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PensioAPI::Responses::Terminal do
   before :each do
-    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals')
+    stub_pensio_response('/merchant/API/getTerminals', 'get_terminals', method: :get)
   end
 
   let(:response) { PensioAPI::Terminal.all }
@@ -17,7 +17,7 @@ describe PensioAPI::Responses::Terminal do
     describe '.map_terminals' do
       context 'with one terminal' do
         before :each do
-          stub_pensio_response('/merchant/API/getTerminals', 'get_terminals_single')
+          stub_pensio_response('/merchant/API/getTerminals', 'get_terminals_single', method: :get)
         end
 
         let(:response) { PensioAPI::Terminal.all }
@@ -43,7 +43,7 @@ describe PensioAPI::Responses::Terminal do
 
   context 'with no terminals' do
     before :each do
-      stub_pensio_response('/merchant/API/getTerminals', 'get_terminals_none')
+      stub_pensio_response('/merchant/API/getTerminals', 'get_terminals_none', method: :get)
     end
 
     describe '.transactions' do
