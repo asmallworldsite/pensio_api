@@ -1,3 +1,6 @@
+# Important
+This gem is no longer maintained. AltaPay maintain their own fork [here](https://github.com/AltaPay/sdk-ruby).
+
 # PensioAPI
 This gem covers most of the Merchant and eCommerce API functionality provided by AltaPay, formerly Pensio (https://altapay.com).
 
